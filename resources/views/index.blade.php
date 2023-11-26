@@ -21,13 +21,6 @@
     <link rel="stylesheet" href="{{ asset('js/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/glightbox/css/glightbox.min.css') }}">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <!-- =======================================================
-  * Template Name: FlexStart
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -164,7 +157,8 @@
                 </div>
             </div>
 
-        </section><!-- End About Section -->
+        </section>
+        <!-- End About Section -->
 
         <!-- ======= Values Section ======= -->
         <section id="values" class="values">
