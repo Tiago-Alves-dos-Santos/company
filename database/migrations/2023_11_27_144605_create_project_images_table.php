@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Projects;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('project_images', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Projects::class)->constrained();
             $table->string('title', 50);
             $table->string('image',50);
             $table->timestamps();
