@@ -6,6 +6,7 @@
         @include('include.section.hero')
     </section><!-- End Hero -->
 @endsection
+
 @section('content')
 <section id="about" class="about">
     @include('include.section.about')
