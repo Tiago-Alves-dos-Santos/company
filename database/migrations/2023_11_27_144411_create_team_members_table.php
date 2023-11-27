@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('profile_picture',50);
             $table->string('facebook_link',255);
             $table->string('instagram_link',255);
-            $table->string('work',50);
             $table->text('description');
             $table->timestamps();
             $table->softDeletes();

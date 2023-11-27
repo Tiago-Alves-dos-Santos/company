@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->nullable()->constrained();
             $table->string('street',50);
             $table->string('neighborhood',50);
-            $table->string('street',50);
             $table->string('city',50);
             $table->string('state',50);
             $table->smallInteger('number');
