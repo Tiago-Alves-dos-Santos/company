@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50);
+            $table->string('surname', 50)->nullable();
+            $table->boolean('visible')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

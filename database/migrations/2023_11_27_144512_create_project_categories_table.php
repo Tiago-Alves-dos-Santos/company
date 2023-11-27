@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('project_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('title'); //web, mobile, desktop, crm etc
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

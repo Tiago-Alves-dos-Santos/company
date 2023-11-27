@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('work_hours', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->dateTime('start_at');
+            $table->dateTime('end_at');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('title',50);
+            $table->text('description');
+            $table->tinyText('icon');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
+            $table->string('name',50);
+            $table->string('work',50);
+            $table->string('profile_picture',50);
+            $table->string('facebook_link',255);
+            $table->string('instagram_link',255);
+            $table->string('work',50);
+            $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
