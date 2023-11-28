@@ -13,5 +13,7 @@
     <div class="center">
         @yield('content')
     </div>
+
+@stack('script')
 </body>
 </html>

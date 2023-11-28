@@ -41,4 +41,10 @@
             </div>
         </div>
     </form>
+
+    @push('script')
+        <script>
+
+        </script>
+    @endpush
 </div>
