@@ -7,7 +7,7 @@
     <title>Soluções Software</title>
     <!-- Favicons -->
     <link href="{{ asset('img/logo-ico.png') }}" rel="icon">
-    @vite(['resources/sass/admin.scss'])
+    @vite(['resources/sass/app.scss'])
 </head>
 <body class="layout-center">
     <div class="center">
