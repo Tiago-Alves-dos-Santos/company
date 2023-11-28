@@ -7,10 +7,11 @@
     <title>Soluções Software</title>
     <!-- Favicons -->
     <link href="{{ asset('img/logo-ico.png') }}" rel="icon">
+    @vite(['resources/sass/admin.scss'])
 </head>
-<body>
-    <h1>Menu admin</h1>
-
-    @yield('content')
+<body class="layout-center">
+    <div class="center">
+        @yield('content')
+    </div>
 </body>
 </html>

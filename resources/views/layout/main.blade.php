@@ -3,15 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Soluções Software</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="/img/logo-ico.png" rel="icon">
-    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
