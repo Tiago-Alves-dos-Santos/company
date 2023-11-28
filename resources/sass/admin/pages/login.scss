@@ -1,5 +1,30 @@
-div.login{
- width: 50px;
- height: 90px;
- background-color: red;
+div.login {
+    width: 500px;
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 20px;
+    div.form{
+        box-sizing: border-box;
+        div.img{
+            display: flex;
+            justify-content: center;
+            img{
+                width: 150px;
+                border-radius: 100%;
+            }
+        }
+        div.title h3{
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        div.login-options{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        span#show-password{
+            cursor: pointer;
+        }
+    }
 }
