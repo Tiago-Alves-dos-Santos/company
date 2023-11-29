@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="{{ asset('js/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/glightbox/css/glightbox.min.css') }}">
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/site.js'])
 </head>
 
 <body>
