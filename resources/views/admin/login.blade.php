@@ -2,6 +2,75 @@
 
 @section('content')
     <div class="login">
-        <livewire:admin.form-login>
+        <div class="form">
+            {{-- Be like water. --}}
+            <div class="img">
+                <img src="{{ asset('img/quadro_logo.png') }}" alt="">
+            </div>
+            <div class="title">
+                <h3>Administrador</h3>
+            </div>
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="">E-mail</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror">
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label for="">Senha</label>
+                        <div class="input-group mb-3">
+                            <input type="password" id="password" class="form-control  @error('password') is-invalid @enderror"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text" id="show-password" onclick="showPassword()">
+                                <i class="bi bi-eye-slash-fill"></i>
+                            </span>
+                            @error('password')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="login-options">
+                    <div class="form-check">
+                        <input class="form-check-input pointer" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label pointer" for="flexCheckDefault">
+                            Lembrar de mim
+                        </label>
+                    </div>
+
+                    <a href="#" class="link-danger">Esqueceu a senha?</a>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                </div>
+            </form>
+            @push('script')
+                <script>
+                    function showPassword(){
+                        var x = document.getElementById("password");
+                        var span = document.getElementById("show-password");
+                        if (x.type === "password") {
+                            x.type = "text";
+                            span.innerHTML = '<i class="bi bi-eye-fill"></i>';
+                        } else {
+                            x.type = "password";
+                            span.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
+                        }
+                    }
+                </script>
+            @endpush
+        </div>
     </div>
 @endsection
