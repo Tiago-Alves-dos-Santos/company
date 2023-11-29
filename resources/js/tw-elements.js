@@ -1,7 +1,9 @@
 import {
     Dropdown,
     Ripple,
+    Sidenav,
     initTE,
-  } from "tw-elements";
+} from "tw-elements";
 
-  initTE({ Dropdown, Ripple });
+initTE({ Dropdown, Ripple, Sidenav });
+
