@@ -8,6 +8,7 @@
     <!-- Favicons -->
     <link href="{{ asset('img/logo-ico.png') }}" rel="icon">
     @vite(['resources/sass/admin.scss','resources/js/app.js'])
+    @wireUiScripts
 </head>
 <body>
     <h1>Menu admin</h1>
