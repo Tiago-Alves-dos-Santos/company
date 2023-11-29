@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="">E-mail</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror">
                         @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -27,7 +27,7 @@
                     <div class="col-sm-12">
                         <label for="">Senha</label>
                         <div class="input-group mb-3">
-                            <input type="password" id="password" class="form-control  @error('password') is-invalid @enderror"
+                            <input type="password" name="password" id="password" class="form-control  @error('password') is-invalid @enderror"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <span class="input-group-text" id="show-password" onclick="showPassword()">
                                 <i class="bi bi-eye-slash-fill"></i>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="login-options">
                     <div class="form-check">
-                        <input class="form-check-input pointer" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input pointer" name="remember" type="checkbox" value="" id="flexCheckDefault">
                         <label class="form-check-label pointer" for="flexCheckDefault">
                             Lembrar de mim
                         </label>
