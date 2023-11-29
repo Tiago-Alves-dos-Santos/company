@@ -8,5 +8,9 @@
 </head>
 <body>
     Eu sou dashboard
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button>Sair</button>
+    </form>
 </body>
 </html>
