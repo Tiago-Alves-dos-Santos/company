@@ -3,15 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Soluções Software</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
     <!-- Favicons -->
     <link href="/img/logo-ico.png" rel="icon">
-    <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -20,7 +16,7 @@
 
     <link rel="stylesheet" href="{{ asset('js/swiper/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('js/glightbox/css/glightbox.min.css') }}">
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/site.js'])
 </head>
 
 <body>
