@@ -1,8 +1,10 @@
-@extends('layout.admin')
+@extends('layout.admin', ['tab_title' => 'Dashboard'])
+
+@section('title', 'Dashboard')
 
 @section('content')
     <div>
-        <h1 class="font-bold text-center text-xl">Dashboard</h1>
+
 
         <div class="flex justify-evenly flex-wrap">
             <div
