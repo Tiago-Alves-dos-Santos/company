@@ -54,7 +54,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary" id="send">
+                        <button type="submit" class="btn btn-primary" id="btn-login">
                             Entrar
                             <div class="spinner-border spinner-border-sm" role="status" id="load">
                                 <span class="visually-hidden">Loading...</span>
@@ -66,7 +66,6 @@
             @push('script')
                 <script>
                     function showPassword() {
-                        document.getElementById('send').click();
                         var x = document.getElementById("password");
                         var span = document.getElementById("show-password");
                         if (x.type === "password") {
@@ -80,6 +79,7 @@
                     document.getElementById('load').style.display = 'none';
                     document.getElementById('form-login').addEventListener('submit', function(e) {
                         document.getElementById('load').style.display = 'inline-block';
+                        document.getElementById('btn-login').setAttribute('disabled', true);
                     });
 
                 </script>
