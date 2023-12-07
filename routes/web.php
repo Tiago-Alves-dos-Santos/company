@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 
-Route::middleware(['auth','verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     //rotas
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile-information', [UserController::class, 'profileInformation'])->name('user.profile-information');
