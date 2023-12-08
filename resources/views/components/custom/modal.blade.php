@@ -1,9 +1,10 @@
 @props([
+    'id' => 'empty',
     'title' => '',
 ])
 <div data-te-modal-init
     class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-    id="staticBackdrop" data-te-backdrop="static" data-te-keyboard="false" tabindex="-1"
+    id="{{ $id }}" data-te-backdrop="static" data-te-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk -->
     <div data-te-modal-dialog-ref
@@ -33,7 +34,7 @@
                 {{ $slot }}
                 <div
                     class="flex flex-wrap items-center justify-end flex-shrink-0 p-4 border-t-2 border-opacity-100 rounded-b-md border-neutral-100 dark:border-opacity-50">
-                    {{ $footer }}
+                    {{ $footer ?? null }}
                 </div>
             </div>
 
