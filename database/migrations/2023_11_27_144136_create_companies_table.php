@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('cnpj',19);
-            $table->string('logo',50);
+            $table->string('logo',50)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

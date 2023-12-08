@@ -86,6 +86,7 @@
                         <x-custom.button type="submit" data-te-ripple-init data-te-ripple-color="light" context='primary'
                             icon="ri-save-line text-lg mr-3 p-0">
                             Salvar
+                            {{-- <x-custom.load :load_livewire='false'></x-custom.load> --}}
                         </x-custom.button>
                     </div>
                     @if ($errors->hasBag('updatePassword'))

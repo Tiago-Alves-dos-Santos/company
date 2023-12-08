@@ -13,6 +13,8 @@
 </head>
 
 <body class="bg-gray-300">
+    <x-dialog />
+    <x-notifications />
     @include('include.admin.sidebar')
 
 
