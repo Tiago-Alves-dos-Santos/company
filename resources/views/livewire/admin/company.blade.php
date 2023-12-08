@@ -3,8 +3,10 @@
     <form wire:submit='save' enctype="multipart/form-data">
         <div class="w-full flex justify-center">
             <div class="flex justify-center border border-gray-400 w-[220px] h-max-[320px]">
-                @if ($logo)
+                @if ($logo && in_array($logo->getClientOriginalExtension(), ['jpg', 'jpeg', 'png']))
                     <img src="{{ $logo->temporaryUrl() }}" class="" alt="">
+                @elseif(!empty($company->logo))
+                    <img src="{{ asset("img/company/{$company->logo}") }}" class="" alt="">
                 @else
                     <img src="{{ asset('img/empty-64.png') }}" class="w-[64px]" alt="">
                 @endif

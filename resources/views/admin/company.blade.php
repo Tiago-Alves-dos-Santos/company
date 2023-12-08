@@ -1,6 +1,6 @@
 @extends('layout.admin', ['tab_title' => 'Empresa'])
 
-@section('title', 'Empresa')
+
 
 @section('content')
     <div class="flex justify-center w-full">
