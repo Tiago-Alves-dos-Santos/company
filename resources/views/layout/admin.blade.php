@@ -53,9 +53,9 @@
                 buttons[i].setAttribute('disabled', 'disabled');
                 load.style.display = 'inline-block';
             }
-
         }
     </script>
+    <script src="{{ asset('js/alpine-listener.js') }}"></script>
 </body>
 
 </html>

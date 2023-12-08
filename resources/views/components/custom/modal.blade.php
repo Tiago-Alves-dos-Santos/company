@@ -1,6 +1,7 @@
 @props([
     'id' => 'empty',
     'title' => '',
+    'close_class' => 'close-modal-button'
 ])
 <div data-te-modal-init
     class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -20,7 +21,7 @@
                 </h5>
                 <!--Close button-->
                 <button type="button"
-                    class="box-content border-none rounded-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    class="{{ $close_class }} box-content border-none rounded-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                     data-te-modal-dismiss aria-label="Close">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">

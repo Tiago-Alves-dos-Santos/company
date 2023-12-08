@@ -22,6 +22,7 @@ class Form extends Component
             'title' => $this->title,
             'surname' => $this->surname
         ]);
+        $this->dispatch('close-modal', close_class: 'close-modal-button');
         $this->notification()->success('Sucesso', 'Nova tag cadastrada');
     }
     public function render()
