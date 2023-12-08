@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 final class Company
 {
     use PublicUpload;
+    private $path = "img/company/";
     /**
      * Create or update a company, with or without logo
      *
@@ -18,7 +19,7 @@ final class Company
      * @param array $resize
      * @return void
      */
-    public function save(array $data,  ?UploadedFile $file, array $resize = []):void
+    public function save(array $data,  ?UploadedFile $file = null, array $resize = []): void
     {
         $operation = '';
         $company = null;
@@ -32,17 +33,26 @@ final class Company
         }
 
         if (!empty($file)) {
-            $path = "img/company/";
-            if($operation == 'create'){
+            if ($operation == 'create') {
                 $company = $company->fresh();
-            }else if($operation == 'update' && File::exists(public_path($path.'.'.$company->logo))){
-                File::delete(public_path($path.'.'.$company->logo));
+            } else if ($operation == 'update' && File::exists(public_path($this->path . '.' . $company->logo))) {
+                File::delete(public_path($this->path . '.' . $company->logo));
             }
             $newName = 'solucoes_software';
-            $this->uploadImage($file, $path,$newName,$resize);
-            $company->logo = $newName.'.'.$file->extension();
+            $this->uploadImage($file, $this->path, $newName, $resize);
+            $company->logo = $newName . '.' . $file->extension();
             $company->save();
         }
     }
 
+    public function deleteLogo()
+    {
+        $company = CompanyModel::first();
+        $file = public_path($this->path.$company->logo);
+        if(File::exists($file)){
+            File::delete($file);
+            $company->logo = null;
+            $company->save();
+        }
+    }
 }

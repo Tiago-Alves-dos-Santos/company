@@ -2,13 +2,13 @@
 
 namespace App\Livewire\Admin;
 
-use App\Facade\ServiceFactory;
 use Livewire\Component;
-
 use WireUi\Traits\Actions;
+
 use Livewire\WithFileUploads;
+use App\Facade\ServiceFactory;
+use Illuminate\Validation\Rule;
 use App\Models\Company as CompanyModel;
-use Livewire\Attributes\Validate;
 
 class Company extends Component
 {
@@ -16,8 +16,7 @@ class Company extends Component
 
     public ?string $name;
     public ?string $cnpj;
-    // #[Validate('required|image|mimes:jpg,png,jpeg')]
-    public $logo;
+    public $logo = null;
 
     public function save()
     {
@@ -25,18 +24,33 @@ class Company extends Component
         $this->validate([
             'name' => ['required', 'min:5'],
             'cnpj' => ['required', 'min:18'],
-            'logo' => ['required','image','mimes:jpg,png,jpeg']
+            'logo' => [
+                'nullable', 'image', 'mimes:jpg,png,jpeg',
+                Rule::requiredIf(function () {
+                    return is_null($this->logo) ? false : true;
+                })
+            ]
         ]);
         $data = [
             'name' => $this->name,
             'cnpj' => $this->cnpj
         ];
         try {
-            $company->save($data, $this->logo);
+            empty($this->logo) ? $company->save($data) : $company->save($data, $this->logo);
             $this->notification()->success('Sucesso', 'Empresa atualizada com sucesso');
         } catch (\Exception $e) {
             $this->dialog()->error('Error', $e->getMessage());
         }
+    }
+    public function deleteLogo()
+    {
+
+        if(CompanyModel::count() > 0){
+            ServiceFactory::createCompany()->deleteLogo();
+        }
+        $this->reset('logo');
+        $this->notification()->info('Informação', 'Foto removida com sucesso');
+
     }
     public function render()
     {

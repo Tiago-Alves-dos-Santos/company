@@ -1,7 +1,7 @@
-<div>
+<div x-data="company">
     {{-- Success is as dangerous as failure. --}}
     <form wire:submit='save' enctype="multipart/form-data">
-        <div class="w-full flex justify-center">
+        <div class="w-full flex justify-center flex-col items-center">
             <div class="flex justify-center border border-gray-400 w-[220px] h-max-[320px]">
                 @if ($logo && in_array($logo->getClientOriginalExtension(), ['jpg', 'jpeg', 'png']))
                     <img src="{{ $logo->temporaryUrl() }}" class="" alt="">
@@ -11,6 +11,29 @@
                     <img src="{{ asset('img/empty-64.png') }}" class="w-[64px]" alt="">
                 @endif
             </div>
+            <x-custom.button
+                x-on:confirm="{
+                title: 'Deseja continuar com a ação?',
+                description: 'Ação não poderá ser desfeita.',
+                icon: 'question',
+                accept: {
+                    label: 'Confirmar',
+                    method: 'deleteLogo'
+                },
+                reject: {
+                    label: 'Cancelar',
+                }
+            }"
+                type="button" context="danger" :load_livewire="true" icon="ri-delete-bin-line text-lg mr-2">
+                Remover
+                <x-slot:load>
+                    <div wire:loading wire:target='deleteLogo'>
+                        <x-custom.load></x-custom.load>
+                    </div>
+                </x-slot>
+            </x-custom.button>
+
+
         </div>
         <div>
             <div class="mb-3 mx-1">
@@ -23,33 +46,48 @@
             </div>
         </div>
         <div class="flex flex-col sm:flex-row" wire:ignore>
-            <div class="relative mx-1 my-1 sm:w-1/2" >
+            <div class="relative mx-1 my-1 sm:w-1/2">
                 <x-input wire:model="name" label="Nome" />
             </div>
 
-            <div class="relative mx-1 my-1 sm:w-1/2" >
-                <x-input wire:model="cnpj" label="CNPJ" x-mask='99.999.999/9999-99'/>
+            <div class="relative mx-1 my-1 sm:w-1/2">
+                <x-input wire:model="cnpj" label="CNPJ" x-mask='99.999.999/9999-99' />
             </div>
         </div>
 
         <div class="flex justify-end">
-            <x-custom.button type='submit' :load_livewire="true" wire:loading.attr="disabled">
+            <x-custom.button type='submit' :load_livewire="true" wire:loading.attr="disabled"
+                icon="ri-save-line text-lg mr-3 p-0">
                 Salvar
                 <x-slot:load>
-                    <div wire:loading>
+                    <div wire:loading wire:target='save'>
                         <x-custom.load></x-custom.load>
                     </div>
                 </x-slot>
             </x-custom.button>
         </div>
         @if ($errors->any())
-        <div class="mt-3 rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700" role="alert">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+            <div class="mt-3 rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     </form>
 </div>
+
+@push('script')
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('company', () => ({
+                open: false,
+
+                toggle() {
+                    this.open = !this.open
+                }
+            }))
+        })
+    </script>
+@endpush
