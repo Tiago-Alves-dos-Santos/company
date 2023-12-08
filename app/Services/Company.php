@@ -26,13 +26,13 @@ final class Company
         if (CompanyModel::count() == 0) {
             $operation = 'create';
             $company = CompanyModel::create($data);
-        } else {
+        } else if(CompanyModel::count() == 1) {
             $operation = 'update';
             $company = CompanyModel::first();
             $company->update($data);
         }
 
-        if (!empty($file)) {
+        if (!empty($file) && !empty($operation)) {
             if ($operation == 'create') {
                 $company = $company->fresh();
             } else if ($operation == 'update' && File::exists(public_path($this->path . '.' . $company->logo))) {
@@ -44,8 +44,12 @@ final class Company
             $company->save();
         }
     }
-
-    public function deleteLogo()
+    /**
+     * Delete logo company
+     *
+     * @return void
+     */
+    public function deleteLogo():void
     {
         $company = CompanyModel::first();
         $file = public_path($this->path.$company->logo);
