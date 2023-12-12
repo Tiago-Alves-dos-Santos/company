@@ -10,6 +10,7 @@
     <link href="{{ asset('img/logo-ico.png') }}" rel="icon">
     @vite(['resources/sass/admin.scss', 'resources/js/app.js'])
     @wireUiScripts
+    @livewireStyles
 </head>
 
 <body class="bg-gray-300">
@@ -39,6 +40,7 @@
             </div>
         </div>
     </div>
+    @livewireScripts
     @stack('script')
     <script>
         //hidde all loads

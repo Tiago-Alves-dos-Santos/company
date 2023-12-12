@@ -30,7 +30,8 @@
                                 @endif
                                 <td>
                                     <x-custom.button type='button' :load_livewire="true" wire:target='x' wire:loading.attr="disabled"
-                                        icon="ri-pencil-fill text-lg mr-3 p-0" context='warning'>
+                                        icon="ri-pencil-fill text-lg mr-3 p-0" context='warning' data-te-toggle="modal" data-te-target="#update-tag" data-te-ripple-init data-te-ripple-color="light"
+                                        @click="$dispatch('tag.form.loadUpdate', {id: '{{ $value->id }}'})">
                                         EDITAR
                                         <x-slot:load>
                                             <div wire:loading wire:target='x'>
