@@ -3,15 +3,11 @@
     <form wire:submit='save'>
         <x-input label="Tag" corner-hint="Ex: Feedbacks" wire:model='title' />
         <x-input label="Apelido(opcional)" corner-hint="Ex: Comentarios" wire:model='surname' />
-        {{ $visible }}
-        <x-select label="Visibilidade" placeholder="Visbilidade" wire:model="visible">
-            <x-select.option label="Visivel" value="1" />
-            <x-select.option label="Não visivel" value="0" />
-        </x-select>
-        <x-native-select label="Select Status" wire:model="visible">
-            <option value="1" @checked($visible)>Visivel</option>
-            <option value='0' @checked($visible == 0)>Não visivel</option>
-        </x-native-select>
+        @if ($operation == 'update')
+        <div class="w-full p-4 mt-2 border border-gray-300 rounded-md">
+            <x-toggle label="{{ $visible ? 'Ativo':'Inativo' }}" lg wire:model.lazy="visible" />
+        </div>
+        @endif
         <div class="flex justify-end mt-1">
             <x-custom.button type='submit' :load_livewire="true" wire:loading.attr="disabled"
                 icon="ri-save-line text-lg mr-3 p-0">

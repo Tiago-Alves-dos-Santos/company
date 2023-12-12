@@ -7,7 +7,7 @@
         <x-custom.modal title="Cadastrar tag" id="create-tag">
             <livewire:admin.tag.form>
         </x-custom.modal>
-        <x-custom.modal title="Editar tag" id="update-tag">
+        <x-custom.modal title="Editar tag" id="update-tag" close_id="update-tag-close">
             <livewire:admin.tag.form operation="update">
         </x-custom.modal>
         <div class="flex flex-col items-center w-full">
