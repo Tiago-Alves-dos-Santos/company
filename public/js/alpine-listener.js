@@ -1,5 +1,5 @@
 document.addEventListener('livewire:initialized', () => {
-    Livewire.on('close-modal', ({close_class}) => {
-        document.querySelector('.' + close_class).click();
+    Livewire.on('close-modal', ({modal_close_id}) => {
+        document.getElementById(modal_close_id).click();
     });
 });

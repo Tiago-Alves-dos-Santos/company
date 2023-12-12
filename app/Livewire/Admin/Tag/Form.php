@@ -12,18 +12,23 @@ class Form extends Component
     public string $title;
     public string $surname;
     public bool $visivle;
+    public string $operation;
     public function save(): void
     {
         $this->validate([
-            'title' => ['required','min:3'],
-            'surname' => ['required','min:3'],
+            'title' => ['required', 'min:3'],
+            'surname' => ['required', 'min:3'],
         ]);
         Tag::create([
             'title' => $this->title,
             'surname' => $this->surname
         ]);
-        $this->dispatch('close-modal', close_class: 'close-modal-button');
+        $this->dispatch('close-modal', modal_close_id: 'close-modal-button');
+        $this->dispatch('reload-tags-table');
         $this->notification()->success('Sucesso', 'Nova tag cadastrada');
+    }
+    public function update($id)
+    {
     }
     public function render()
     {
