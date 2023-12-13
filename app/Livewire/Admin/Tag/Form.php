@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Tag;
 
+use App\Models\Content;
 use App\Models\Tag;
 use Illuminate\Console\View\Components\Task;
 use Livewire\Component;
@@ -45,6 +46,7 @@ class Form extends Component
         }
         $this->notification()->success('Sucesso', $msg);
         $this->dispatch('reload-tags-table');
+        $this->dispatch('reload.content.main');
     }
 
     #[On('tag.form.loadUpdate')]
@@ -62,9 +64,12 @@ class Form extends Component
     }
     public function create()
     {
-        Tag::create([
+        $tag = Tag::create([
             'title' => $this->title,
             'surname' => $this->surname
+        ]);
+        Content::create([
+            'tag_id' => $tag->id,
         ]);
         $this->myReset();
     }
