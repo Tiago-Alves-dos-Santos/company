@@ -11,7 +11,7 @@
             <livewire:admin.tag.form operation="update">
         </x-custom.modal>
         <div class="flex flex-col items-center w-full">
-            <div class="w-full sm:w-[800px]">
+            <div class="w-full sm:w-[900px]">
                 <x-card.header title="Tags">
                     <div class="flex justify-end">
                         <button type="button"
@@ -26,8 +26,8 @@
                     </div>
                 </x-card.header>
             </div>
-            <div class="w-full sm:w-[800px] mt-1">
-                <x-card.header title="Tags">
+            <div class="w-full sm:w-[900px] mt-1">
+                <x-card.header title="Conteúdo">
                     Conteudo
                 </x-card.header>
             </div>

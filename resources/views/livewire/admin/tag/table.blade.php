@@ -39,6 +39,16 @@
                                             </div>
                                         </x-slot>
                                     </x-custom.button>
+                                    <x-custom.button type='button' :load_livewire="true" wire:target='x' wire:loading.attr="disabled" class="mt-1"
+                                        icon="ri-add-line text-lg mr-3 p-0" context='primary' data-te-toggle="modal" data-te-target="#update-tag" data-te-ripple-init data-te-ripple-color="light"
+                                        >
+                                        Conteúdo
+                                        <x-slot:load>
+                                            <div wire:loading wire:target='x'>
+                                                <x-custom.load></x-custom.load>
+                                            </div>
+                                        </x-slot>
+                                    </x-custom.button>
                                 </td>
                             </tr>
                         @empty
