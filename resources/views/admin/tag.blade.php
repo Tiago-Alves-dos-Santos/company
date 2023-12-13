@@ -28,7 +28,32 @@
             </div>
             <div class="w-full sm:w-[900px] mt-1">
                 <x-card.header title="Conteúdo">
-                    Conteudo
+                    <!--Tabs navigation-->
+                    <ul class="flex flex-row flex-wrap pl-0 mb-5 list-none border-b-0" role="tablist" data-te-nav-ref>
+                        @foreach ($tags as $value)
+                            <li role="presentation">
+                                <a href="#tabs-{{ $value->id }}"
+                                    class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+                                    data-te-toggle="pill" data-te-target="#tabs-{{ $value->id }}"
+                                    role="tab" aria-controls="tabs-{{ $value->id }}"
+                                    aria-selected="true">{{ $value->title }}</a>
+                            </li>
+                        @endforeach
+
+                    </ul>
+
+
+                    <!--Tabs content-->
+                    <div class="mb-6">
+                        @foreach ($tags as $value)
+                            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                                id="tabs-{{ $value->id }}" role="tabpanel" aria-labelledby="tabs-{{ $value->id }}-tab"
+                                >
+                                {{ $value->surname }}
+                                <div id="jsoneditor" style="width: 100%; height: 400px;"></div>
+                            </div>
+                        @endforeach
+                    </div>
                 </x-card.header>
             </div>
         </div>
@@ -44,5 +69,19 @@
                 }
             }));
         })
+
+        // create the editor
+        const container = document.getElementById("jsoneditor")
+        const options = {}
+        const editor = new JSONEditor(container, options)
+
+        // set json
+        const initialJson = {
+            "String": "Insira"
+        }
+        editor.set(initialJson)
+
+        // get json
+        const updatedJson = editor.get()
     </script>
 @endpush

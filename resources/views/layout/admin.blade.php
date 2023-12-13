@@ -11,6 +11,7 @@
     @vite(['resources/sass/admin.scss', 'resources/js/app.js'])
     @wireUiScripts
     @livewireStyles
+    @include('include.cdn')
 </head>
 
 <body class="bg-gray-300">
