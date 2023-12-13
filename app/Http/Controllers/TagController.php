@@ -10,7 +10,6 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::get(['id','title','surname']);
-        // dd($tags);
         return view('admin.tag', compact('tags'));
     }
 }
