@@ -7,15 +7,30 @@ use App\Models\Tag as ModelTag;
 
 final class Tag
 {
-    public function create(array $data) :void
+    public function create(array $data): object
     {
         $tag = ModelTag::create($data);
-        Content::create([
+        $content = Content::create([
             'tag_id' => $tag->id,
         ]);
+        return (object) compact('tag', 'content');
+    }
+    public function createMany(array $data): object
+    {
+        $tags = ModelTag::insert($data) ? true:[];
+        $contents = [];
+        if ($tags) {
+            $tags = ModelTag::get();
+            foreach ($tags as $value) {
+                $contents[] = Content::create([
+                    'tag_id' => $value->id,
+                ]);
+            }
+        }
+        return (object) compact('tags');
     }
 
-    public function getTagsValues() :array
+    public function getTagsValues(): array
     {
         $tags = ModelTag::get();
         $tags_value = [];

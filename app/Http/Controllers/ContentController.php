@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
-
     public function saveJson(Request $request)
     {
         $request->validate([
