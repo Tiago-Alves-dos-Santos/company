@@ -10,7 +10,6 @@
                     @click='toggleInsert({{ $value->id }}, {{ $value->content}})'>{{ $value->tag->title }}</a>
             </li>
         @endforeach
-        {{-- data-te-nav-active --}}
     </ul>
 
     <!--Tabs content-->
@@ -58,11 +57,8 @@
 
         function loadEditor() {
             // create the editor
-            const container = document.getElementById("jsoneditor")
-            const options = {
-                onChange: function(e) {
-                }
-            }
+            const container = document.getElementById("jsoneditor");
+            const options = {};
             editor = new JSONEditor(container, options)
 
         }

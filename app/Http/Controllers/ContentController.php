@@ -14,7 +14,6 @@ class ContentController extends Controller
             'id' => ['required'],
             'content' => ['required'],
         ]);
-        // dd(json_encode($request->content));
         Content::find((int) $request->id)->update([
             'content' => $request->content
         ]);

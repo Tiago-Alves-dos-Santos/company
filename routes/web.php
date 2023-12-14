@@ -23,16 +23,14 @@ Route::get('/', function () {
 });
 
 
-
+//administrator routes users(admin)
 Route::middleware(['auth'])->group(function () {
-    //rotas
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/company', [CompanyController::class, 'index'])->name('company');
     Route::get('/tag', [TagController::class, 'index'])->name('tag');
     Route::get('/profile-information', [UserController::class, 'profileInformation'])->name('user.profile-information');
 
     Route::prefix('/content')->group(function () {
-        //rotas
         Route::post('/saveJson', [ContentController::class, 'saveJson'])->name('content.saveJson');
     });
 });
