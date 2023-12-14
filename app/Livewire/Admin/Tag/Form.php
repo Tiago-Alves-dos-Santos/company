@@ -75,7 +75,6 @@ class Form extends Component
     public function edit()
     {
         $this->tags->update([
-            'title' => $this->title,
             'surname' => $this->surname,
             'visible' => filter_var($this->visible, FILTER_VALIDATE_BOOLEAN),
         ]);

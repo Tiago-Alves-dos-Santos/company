@@ -1,7 +1,10 @@
 <div x-data="form_tag">
     {{-- Success is as dangerous as failure. --}}
     <form wire:submit='save'>
-        <x-input label="Tag" corner-hint="Ex: Feedbacks" wire:model='title' />
+        @if ($operation == 'create')
+        <x-input label="Tag" corner-hint="Ex: Feedbacks" wire:model='title'/>
+        @endif
+
         <x-input label="Apelido(opcional)" corner-hint="Ex: Comentarios" wire:model='surname' />
         @if ($operation == 'update')
         <div class="w-full p-4 mt-2 border border-gray-300 rounded-md">
