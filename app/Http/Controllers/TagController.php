@@ -9,7 +9,7 @@ class TagController extends Controller
 {
     public function index()
     {
-        $tags = Tag::get(['id','title','surname']);
-        return view('admin.tag', compact('tags'));
+        return view('admin.tag');
     }
+
 }

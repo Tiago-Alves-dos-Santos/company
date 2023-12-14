@@ -30,6 +30,15 @@
             <div class="w-full sm:w-[900px] mt-1">
                 <x-card.header title="Conteúdo">
                     <livewire:admin.content.main>
+                        @if ($errors->any())
+                            <div class="px-6 py-5 mb-4 text-base rounded-lg bg-danger-100 text-danger-700">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                 </x-card.header>
             </div>
         </div>
@@ -45,19 +54,5 @@
                 }
             }));
         })
-
-        // create the editor
-        const container = document.getElementById("jsoneditor")
-        const options = {}
-        const editor = new JSONEditor(container, options)
-
-        // set json
-        const initialJson = {
-            "String": "Insira"
-        }
-        editor.set(initialJson)
-
-        // get json
-        const updatedJson = editor.get()
     </script>
 @endpush

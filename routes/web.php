@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
@@ -30,10 +31,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tag', [TagController::class, 'index'])->name('tag');
     Route::get('/profile-information', [UserController::class, 'profileInformation'])->name('user.profile-information');
 
-    // Route::prefix('/company')->group(function () {
-    //     //rotas
-    //     Route::get('/', [DashboardController::class, ''])->name('dashboard');
-
-    // });
+    Route::prefix('/content')->group(function () {
+        //rotas
+        Route::post('/saveJson', [ContentController::class, 'saveJson'])->name('content.saveJson');
+    });
 });
 

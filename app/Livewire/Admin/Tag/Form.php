@@ -4,7 +4,6 @@ namespace App\Livewire\Admin\Tag;
 
 use App\Models\Content;
 use App\Models\Tag;
-use Illuminate\Console\View\Components\Task;
 use Livewire\Component;
 use WireUi\Traits\Actions;
 use Livewire\Attributes\On;
@@ -33,6 +32,7 @@ class Form extends Component
                 $this->create();
                 $msg = 'Tag cadastrada com sucesso';
                 $this->dispatch('close-modal', modal_close_id: 'close-modal-button');
+                $this->dispatch('refresh');
                 break;
             case 'update':
                 $this->edit();
