@@ -36,6 +36,7 @@ final class Tag
         $tags_value = [];
         foreach ($tags as $value) {
             $tags_value[$value->title] = (object) json_decode($value->content->content);
+            $tags_value[$value->title]->visible = $value->visible;
         }
         return $tags_value;
     }

@@ -61,9 +61,9 @@ class TagsContentSeeder extends Seeder
                         'title' => 'Oferecemos soluções modernas para o crescimento do seu negócio',
                         'sub_title' => 'Somos uma equipe de designers, desenvolvedores talentosos que criam sites,sistemas e aplicativos para seu negócio',
                         'button' => [
-                            'visible' => false,
+                            'visible' => true,
                             'text' => 'Saber mais',
-                            'link' => ''
+                            'link' => '#about'
                         ]
                     ];
                     break;
@@ -85,15 +85,15 @@ class TagsContentSeeder extends Seeder
                         'sub_title' => 'Nossos Valores Moldam Nossa Jornada',
                         [
                             'title' => 'Compromisso com a Excelência',
-                            'text' => 'Buscamos incessantemente a Excelência em cada detalhe do nosso trabalho, visando superar expectativas e oferecer resultados excepcionais.'
+                            'text' => 'Buscamos incessantemente a Excelência em cada detalhe do nosso trabalho, visando superar expectativas e oferecer resultados excepcionais.',
                         ],
                         [
                             'title' => ' Inovação Constante',
-                            'text' => 'Mantemo-nos em constante evolução, explorando novas possibilidades e ideias para desenvolver soluções inovadoras e alinhadas com o futuro.'
+                            'text' => 'Mantemo-nos em constante evolução, explorando novas possibilidades e ideias para desenvolver soluções inovadoras e alinhadas com o futuro.',
                         ],
                         [
                             'title' => 'Parceria e Confiança',
-                            'text' => 'Construímos relações sólidas baseadas na confiança mútua e parcerias duradouras, priorizando a transparência e a colaboração em todos os projetos.'
+                            'text' => 'Construímos relações sólidas baseadas na confiança mútua e parcerias duradouras, priorizando a transparência e a colaboração em todos os projetos.',
                         ],
                     ];
                     break;
