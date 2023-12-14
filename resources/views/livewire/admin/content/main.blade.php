@@ -47,7 +47,7 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('contentMain', () => ({
                 toggleInsert(id =0 , content = JSON.stringify("{json:'vazio'}")) {
-                    editor.set(JSON.parse(content));
+                    editor.set(content);
                     document.getElementById('json_value').value = JSON.stringify(editor.get());
                     document.getElementById('content_id').value = id;
                 },

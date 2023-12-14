@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Tag;
 
+use App\Facade\ServiceFactory;
 use App\Models\Content;
 use App\Models\Tag;
 use Livewire\Component;
@@ -64,12 +65,10 @@ class Form extends Component
     }
     public function create()
     {
-        $tag = Tag::create([
+        $tag = ServiceFactory::createTag();
+        $tag->create([
             'title' => $this->title,
-            'surname' => $this->surname
-        ]);
-        Content::create([
-            'tag_id' => $tag->id,
+            'surname' => $this->surname,
         ]);
         $this->myReset();
     }
