@@ -21,7 +21,8 @@
       </div>
 
       <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-        <img src="{{ asset('img/quadro_logo.png') }}" class="img-fluid" alt="">
+        {{-- <img src="{{ asset('img/quadro_logo.png') }}" class="img-fluid" alt=""> --}}
+        <img src="{{ asset('img/company/solucoes_software.png') }}" class="img-fluid" style="width: 500px" alt="">
       </div>
 
     </div>

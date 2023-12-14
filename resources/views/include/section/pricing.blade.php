@@ -1,8 +1,9 @@
+@if ($tags_value['TAG_PRICING']->visible)
 <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-        <h2>Pricing</h2>
-        <p>Check our Pricing</p>
+        <h2>{{ $tags_value['TAG_PRICING']->title }}</h2>
+        <p>Confira nossos preços</p>
     </header>
 
     <div class="row gy-4" data-aos="fade-left">
@@ -75,3 +76,4 @@
     </div>
 
 </div>
+@endif

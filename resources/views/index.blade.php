@@ -64,9 +64,9 @@
 </section><!-- End Clients Section -->
 
 <!-- ======= Recent Blog Posts Section ======= -->
-<section id="recent-blog-posts" class="recent-blog-posts">
+{{-- <section id="recent-blog-posts" class="recent-blog-posts">
     @include('include.section.blog-post')
-</section><!-- End Recent Blog Posts Section -->
+</section> --}}
 
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
