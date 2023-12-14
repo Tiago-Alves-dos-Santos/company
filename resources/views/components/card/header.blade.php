@@ -10,7 +10,7 @@
         class="px-6 py-3 text-xl font-medium leading-tight border-b-2 border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
         {{ $title }}
     </h5>
-    <div class="{{ $slot_class ?? 'p-6' }}">
+    <div class="{{ empty($slot_class) ? 'p-6' : $slot_class }}">
         {{ $slot }}
 
 

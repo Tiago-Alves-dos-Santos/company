@@ -52,7 +52,7 @@ class TagsContentSeeder extends Seeder
                 'surname' => 'Inicialmente 6 perguntas frequetemente perguntadas e suas respostas',
             ],
         ];
-        $objects = $tag->createMany($dataTag);
+        $objects = $tag->createManyWithContent($dataTag);
         $json = null;
         foreach ($objects->tags as $key => $value) {
             switch ($value->title) {

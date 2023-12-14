@@ -66,7 +66,7 @@ class Form extends Component
     public function create()
     {
         $tag = ServiceFactory::createTag();
-        $tag->create([
+        $tag->createWithContent([
             'title' => $this->title,
             'surname' => $this->surname,
         ]);

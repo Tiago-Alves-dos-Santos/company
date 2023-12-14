@@ -10,12 +10,17 @@ final class Tag
     public function create(array $data): object
     {
         $tag = ModelTag::create($data);
+        return $tag;
+    }
+    public function createWithContent(array $data): object
+    {
+        $tag = ModelTag::create($data);
         $content = Content::create([
             'tag_id' => $tag->id,
         ]);
         return (object) compact('tag', 'content');
     }
-    public function createMany(array $data): object
+    public function createManyWithContent(array $data): object
     {
         $tags = ModelTag::insert($data) ? true:[];
         $contents = [];
