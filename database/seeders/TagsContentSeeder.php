@@ -100,7 +100,7 @@ class TagsContentSeeder extends Seeder
                 case 'TAG_COUNTS':
                     $json = [
                         [
-                            'data' => 10,
+                            'title' => 10,
                             'text' => 'Clientes'
                         ],
                         [
