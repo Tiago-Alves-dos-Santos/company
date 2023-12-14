@@ -120,6 +120,7 @@ class TagsContentSeeder extends Seeder
                 case 'TAG_FEATURES':
                     $json = [
                         'title' => 'Recursos e Funcionalidades',
+                        'sub_title' => 'Explorando as Capacidades e Benefícios',
                         [
                             'text' => 'Intuitivo'
                         ],
