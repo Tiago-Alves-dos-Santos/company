@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="mt-2 flex flex-col justify-center items-center ">
+    <div class="flex flex-col items-center justify-center mt-2 ">
 
         <div class="w-full sm:w-[800px]">
             <x-card.header title="Meu dados">
@@ -31,14 +31,14 @@
                             Email
                         </label>
                     </div>
-                    <div class="w-full flex justify-end">
+                    <div class="flex justify-end w-full">
                         <x-custom.button type="submit" data-te-ripple-init data-te-ripple-color="light" context='primary'
                             icon="ri-save-line text-lg mr-3 p-0">
                             Salvar
                         </x-custom.button>
                     </div>
                     @if ($errors->hasBag('updateProfileInformation'))
-                        <div class="mt-3 rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700" role="alert">
+                        <div class="px-6 py-5 mt-3 text-base rounded-lg bg-danger-100 text-danger-700" role="alert">
                             <ul>
                                 @foreach ($errors->updateProfileInformation->all() as $error)
                                     <li>{{ $error }}</li>
@@ -82,15 +82,14 @@
                             Confirmar nova senha
                         </label>
                     </div>
-                    <div class="w-full flex justify-end">
+                    <div class="flex justify-end w-full">
                         <x-custom.button type="submit" data-te-ripple-init data-te-ripple-color="light" context='primary'
                             icon="ri-save-line text-lg mr-3 p-0">
                             Salvar
-                            {{-- <x-custom.load :load_livewire='false'></x-custom.load> --}}
                         </x-custom.button>
                     </div>
                     @if ($errors->hasBag('updatePassword'))
-                        <div class="mt-3 rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700" role="alert">
+                        <div class="px-6 py-5 mt-3 text-base rounded-lg bg-danger-100 text-danger-700" role="alert">
                             <ul>
                                 @foreach ($errors->updatePassword->all() as $error)
                                     <li>{{ $error }}</li>
