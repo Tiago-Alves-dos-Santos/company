@@ -2,20 +2,26 @@
 
 namespace App\Livewire\Admin\Service;
 
-use App\Facade\ServiceFactory;
-use App\Models\Services;
-use App\Services\Tag;
 use Livewire\Component;
+use App\Models\Services;
 use WireUi\Traits\Actions;
+use App\Facade\ServiceFactory;
 
-class Form extends Component
+class FormUpdate extends Component
 {
     use Actions;
-    public int $tag_id;
+    public int $service_id = 0;
     public string $title;
     public string $icon;
     public string $description;
-    public function create()
+    public function mount(?Services $service = null)
+    {
+        $this->title = $service->title;
+        $this->description = $service->description;
+        $this->icon = $service->icon;
+        $this->service_id = $service->id;
+    }
+    public function edit()
     {
         $this->validate([
             'title' => ['required', 'min:5', 'max:50'],
@@ -23,25 +29,15 @@ class Form extends Component
             'description' => ['required']
         ]);
         $service = ServiceFactory::createService();
-        $service = $service->create([
+        $service = $service->update($this->service_id,[
             'title' => $this->title,
             'description' => $this->description,
             'icon' => $this->icon
         ]);
-        $this->notification()->success('Sucesso', "Serviço: {$service->title} cadastrado!");
-        $this->myReset();
+        $this->notification()->success('Sucesso', "$service registro atualizado!");
     }
-    private function myReset()
-    {
-        $this->reset([
-            'title',
-            'description',
-            'icon'
-        ]);
-    }
-
     public function render()
     {
-        return view('livewire.admin.service.form');
+        return view('livewire.admin.service.form-update');
     }
 }

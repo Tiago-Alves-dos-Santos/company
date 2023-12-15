@@ -29,6 +29,24 @@ final class Service extends TagContent
         ]);
         return $service;
     }
+    /**
+     * Update equal commun model
+     *
+     * @param integer $id
+     * @param array $data
+     * @return integer
+     */
+    public function update(int $id,array $data): int
+    {
+        parent::create($data);
+        $rowaffecteds = Services::where('id', $id)->update([
+            'tag_id' => $this->model_tag->id,
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'icon' => $data['icon']
+        ]);
+        return $rowaffecteds;
+    }
 
     public function existTagService():bool
     {

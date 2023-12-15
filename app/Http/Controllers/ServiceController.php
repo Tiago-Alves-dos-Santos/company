@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Services;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -15,8 +16,10 @@ class ServiceController extends Controller
     {
         return view('admin.service.create');
     }
-    public function viewUpdate(Request $request)
+    public function viewUpdate(Services $service)
     {
-        # code...
+        return view('admin.service.update', [
+            'service' => $service
+        ]);
     }
 }

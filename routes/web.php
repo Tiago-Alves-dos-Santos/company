@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/services')->group(function () {
         Route::get('/', [ServiceController::class, 'index'])->name('services.index');
         Route::get('/create', [ServiceController::class, 'viewCreate'])->name('services.viewCreate');
-        Route::get('/update', [ServiceController::class, 'viewUpdate'])->name('services.viewUpdate');
+        Route::get('/update/{service}', [ServiceController::class, 'viewUpdate'])->name('services.viewUpdate');
     });
 });
 
