@@ -45,17 +45,16 @@ final class Tag
     {
         return ModelTag::where('title', strtoupper($title))->exists();
     }
-    public function hasContent()
-    {
-    }
 
     public function getTagsValues(): array
     {
         $tags = ModelTag::get();
         $tags_value = [];
         foreach ($tags as $value) {
-            $tags_value[$value->title] = (object) json_decode($value->content->content);
-            $tags_value[$value->title]->visible = $value->visible;
+            if ($value->hasContent()) {
+                $tags_value[$value->title] = (object) json_decode($value->content->content);
+                $tags_value[$value->title]->visible = $value->visible;
+            }
         }
         return $tags_value;
     }

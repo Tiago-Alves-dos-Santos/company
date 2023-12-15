@@ -24,7 +24,19 @@ class Tag extends Model
     /**========================RELATIONSHIP===========================*/
     public function content(): HasOne
     {
-        return $this->hasOne(Content::class);
+        return $this->hasOne(Content::class)->withDefault();
     }
+    /** ========================= METHODS STATIC =========================== */
 
+    /** ========================= METHODS =========================== */
+
+    /**
+     * Check if the tag is related to content
+     *
+     * @return boolean
+     */
+    public function hasContent(): bool
+    {
+        return !empty($this->content);
+    }
 }

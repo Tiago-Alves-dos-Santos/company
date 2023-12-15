@@ -16,10 +16,7 @@ abstract class TagContent
         $this->tag = ServiceFactory::createTag();
         $this->model_tag = new ModelTag();
     }
-    public function create(array $data)
-    {
-        $this->model_tag = $this->createTag();
-    }
+    /** ================ABSTRACTS================= */
     /**
      * Check existence of service tag
      *
@@ -27,6 +24,13 @@ abstract class TagContent
      */
     public abstract function existTagService(): bool;
     protected abstract function createTagService(): ModelTag;
+
+    /** ================================= */
+    public function create(array $data)
+    {
+        $this->model_tag = $this->createTag();
+    }
+
     private function createTag(): ModelTag
     {
         $tag = null;
