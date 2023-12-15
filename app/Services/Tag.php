@@ -7,7 +7,7 @@ use App\Models\Tag as ModelTag;
 
 final class Tag
 {
-    public function create(array $data): object
+    public function create(array $data): ModelTag
     {
         $tag = ModelTag::create($data);
         return $tag;
@@ -22,7 +22,7 @@ final class Tag
     }
     public function createManyWithContent(array $data): object
     {
-        $tags = ModelTag::insert($data) ? true:[];
+        $tags = ModelTag::insert($data) ? true : [];
         $contents = [];
         if ($tags) {
             $tags = ModelTag::get();
@@ -33,6 +33,20 @@ final class Tag
             }
         }
         return (object) compact('tags');
+    }
+
+    /**
+     * Check existence of tag by title
+     *
+     * @param string $title
+     * @return boolean
+     */
+    public function existTag(string $title): bool
+    {
+        return ModelTag::where('title', strtoupper($title))->exists();
+    }
+    public function hasContent()
+    {
     }
 
     public function getTagsValues(): array
