@@ -3,6 +3,7 @@
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebSiteController;
@@ -31,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/content')->group(function () {
         Route::post('/saveJson', [ContentController::class, 'saveJson'])->name('content.saveJson');
+    });
+    Route::prefix('/services')->group(function () {
+        Route::get('/', [ServiceController::class, 'index'])->name('services.index');
     });
 });
 
