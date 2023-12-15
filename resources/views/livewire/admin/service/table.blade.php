@@ -1,6 +1,5 @@
 <div>
     {{-- Success is as dangerous as failure. --}}
-    <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
     <div class="flex flex-col">
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -16,17 +15,30 @@
                         </thead>
                         <tbody>
                             @forelse ($services as $value)
-                            <tr class="border-b dark:border-neutral-500">
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $value->title }}</td>
-                                <td class="px-6 py-4">{{ $value->description }}</td>
-                                <td class="flex justify-start px-6 py-4 whitespace-nowrap">
-                                    <x-custom.dropdown.button title="Ações">
-                                        <x-custom.dropdown.link title="Editar" :link="route('services.viewUpdate', ['service' => $value->id])"></x-custom.dropdown.link>
-                                        <x-custom.dropdown.link title="Excluir"></x-custom.dropdown.link>
-                                    </x-custom.dropdown.button>
-
-                                </td>
-                            </tr>
+                                <tr class="border-b dark:border-neutral-500">
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ $value->title }}</td>
+                                    <td class="px-6 py-4">{{ $value->description }}</td>
+                                    <td class="flex justify-start px-6 py-4 whitespace-nowrap">
+                                        <x-custom.dropdown.button title="Ações">
+                                            <x-custom.dropdown.link title="Editar"
+                                                :link="route('services.viewUpdate', ['service' => $value->id])"></x-custom.dropdown.link>
+                                            <x-custom.dropdown.link title="Excluir"
+                                            x-on:confirm="{
+                                                title: 'Deseja continuar com a ação?',
+                                                description: 'Ação não poderá ser desfeita.',
+                                                icon: 'question',
+                                                accept: {
+                                                    label: 'Confirmar',
+                                                    method: 'delete',
+                                                    params: {{ $value->id }}
+                                                },
+                                                reject: {
+                                                    label: 'Cancelar',
+                                                }
+                                            }"></x-custom.dropdown.link>
+                                        </x-custom.dropdown.button>
+                                    </td>
+                                </tr>
                             @empty
                                 <tr>
                                     <td colspan="4" class="text-center text-danger"> N/A </td>
@@ -35,6 +47,7 @@
 
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
