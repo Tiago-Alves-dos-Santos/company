@@ -1,10 +1,13 @@
+@if ($tags_value['TAG_SERVICE']->visible)
 <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-        <h2>Services</h2>
-        <p>Veritatis et dolores facere numquam et praesentium</p>
+        <h2>Serviços</h2>
+        <p>Dê uma olhada nos serviços que ofertamos a sua empresa</p>
     </header>
-
+    @php
+        $colors_class = ['blue','orange','green','red','purple','pink'];
+    @endphp
     <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -76,3 +79,4 @@
     </div>
 
 </div>
+@endif

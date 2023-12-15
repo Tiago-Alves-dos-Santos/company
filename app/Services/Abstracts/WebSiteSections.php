@@ -6,7 +6,7 @@ use App\Services\Tag;
 use App\Facade\ServiceFactory;
 use App\Models\Tag as ModelTag;
 
-abstract class TagContent
+abstract class WebSiteSections
 {
     protected ?Tag $tag = null;
     protected ?ModelTag $model_tag = null;

@@ -4,9 +4,9 @@ namespace App\Services;
 
 use App\Models\Services;
 use App\Models\Tag as ModelTag;
-use App\Services\Abstracts\TagContent;
+use App\Services\Abstracts\WebSiteSections;
 
-final class Service extends TagContent
+final class Service extends WebSiteSections
 {
     public function __construct (){
         parent::__construct();

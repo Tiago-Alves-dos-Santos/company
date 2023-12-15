@@ -14,7 +14,6 @@ class Table extends Component
     public function delete($id)
     {
         Services::where('id', $id)->forceDelete();
-        // $this->dispatch('post-created');
     }
 
     public function render()
