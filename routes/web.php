@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
@@ -37,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [ServiceController::class, 'index'])->name('services.index');
         Route::get('/create', [ServiceController::class, 'viewCreate'])->name('services.viewCreate');
         Route::get('/update/{service}', [ServiceController::class, 'viewUpdate'])->name('services.viewUpdate');
+    });
+    Route::prefix('/category')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category.index');
     });
 });
 
