@@ -19,4 +19,8 @@ final class ServiceFactory
     {
         return new Service();
     }
+    public function createProjectCategory()
+    {
+        return new Category();
+    }
 }

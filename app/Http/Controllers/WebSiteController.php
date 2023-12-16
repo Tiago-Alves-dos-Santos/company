@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
 use App\Models\Services;
 use Illuminate\Http\Request;
 use App\Facade\ServiceFactory;
