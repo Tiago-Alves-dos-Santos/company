@@ -28,7 +28,7 @@
 <div>
     <!-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi -->
     @if (empty($link))
-    <button {{ $attributes->merge(['class' => $style]) }} value="submit">
+    <button {{ $attributes->merge(['class' => $style]) }} value="submit" >
         <div class="flex flex-row items-center justify-center ">
             <i class="{{ $icon }}"></i>
             {{ $slot }}
