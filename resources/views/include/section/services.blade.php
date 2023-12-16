@@ -12,7 +12,7 @@
             @forelse ($services as $value)
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ ($loop->index + 1) * 100 }}">
                     <div class="service-box {{ $colors_class[$loop->index] }}">
-                        <i class="{{ $value->icon }}"></i>
+                        <i class="{{ $value->icon }} icon"></i>
                         <h3>{{ $value->title }}</h3>
                         <p>{{ $value->description }}.</p>
                         {{-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> --}}
