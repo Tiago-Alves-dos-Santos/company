@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Services\Tag;
 use App\Services\Company;
+use App\Services\Service;
 
 final class ServiceFactory
 {
@@ -13,5 +14,9 @@ final class ServiceFactory
     public function createTag()
     {
         return new Tag();
+    }
+    public function createService()
+    {
+        return new Service();
     }
 }

@@ -2,6 +2,7 @@
     'context' => ['primary', 'info', 'danger', 'warning', 'success'],
     'icon' => '',
     'load_livewire' => false,
+    'link' => null,
 ])
 @php
     $style = '';
@@ -26,8 +27,9 @@
 @endphp
 <div>
     <!-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi -->
-    <button {{ $attributes->merge(['class' => 'flex justify-center' . $style]) }} value="submit">
-        <div class="flex flex-row justify-center items-center ">
+    @if (empty($link))
+    <button {{ $attributes->merge(['class' => $style]) }} value="submit">
+        <div class="flex flex-row items-center justify-center ">
             <i class="{{ $icon }}"></i>
             {{ $slot }}
             @if (!$load_livewire)
@@ -42,4 +44,10 @@
         </div>
 
     </button>
+    @else
+        <a href="{{ $link }}" {{ $attributes->merge(['class' => $style]) }}>
+            <i class="{{ $icon }}"></i>
+            {{ $slot }}
+        </a>
+    @endif
 </div>

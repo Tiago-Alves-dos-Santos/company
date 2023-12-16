@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Facade\ServiceFactory;
 use App\Models\Tag;
+use App\Models\Services;
 use Illuminate\Http\Request;
+use App\Facade\ServiceFactory;
 
 class WebSiteController extends Controller
 {
@@ -12,6 +13,9 @@ class WebSiteController extends Controller
     {
         $tag = ServiceFactory::createTag();
         $tags_value = $tag->getTagsValues();
-        return view('index', compact('tags_value'));
+        return view('index', [
+            'tags_value' => $tags_value,
+            'services' => Services::cursor()
+        ]);
     }
 }
