@@ -50,8 +50,11 @@ class Category extends Component
        ProjectCategory::where('title','like',"%$search%")->cursor();
        return $result;
     }
-    public function delete()
+    public function delete(int $id)
     {
+        $category = ServiceFactory::createProjectCategory();
+        $category->delete($id);
+        $this->notification()->success('Sucesso', 'Categoria deletada');
     }
     public function render()
     {

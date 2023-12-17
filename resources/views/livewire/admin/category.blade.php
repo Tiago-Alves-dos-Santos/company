@@ -72,10 +72,23 @@
                                             </x-slot>
                                         </x-custom.button>
                                         <x-custom.button type="button" context="danger" :load_livewire="true"
-                                            icon="ri-delete-bin-line text-lg mr-2">
+                                            icon="ri-delete-bin-line text-lg mr-2" wire:loading.attr="disabled"
+                                            x-on:confirm="{
+                                                title: 'Deseja continuar com a ação?',
+                                                description: 'Ação não poderá ser desfeita.',
+                                                icon: 'question',
+                                                accept: {
+                                                    label: 'Confirmar',
+                                                    method: 'delete',
+                                                    params: {{ $value->id }}
+                                                },
+                                                reject: {
+                                                    label: 'Cancelar',
+                                                }
+                                            }">
                                             Excluir
                                             <x-slot:load>
-                                                <div wire:loading wire:target='x'>
+                                                <div wire:loading wire:target='delete({{ $value->id }})'>
                                                     <x-custom.load></x-custom.load>
                                                 </div>
                                             </x-slot>
