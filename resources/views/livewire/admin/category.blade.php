@@ -14,10 +14,10 @@
                     </div>
                 </x-slot>
             </x-custom.button>
-            <x-custom.button type="button" context="info" :load_livewire="true" icon="ri-search-line text-lg mr-2">
+            <x-custom.button type="button" context="info" :load_livewire="true" icon="ri-search-line text-lg mr-2" wire:click='$refresh'>
                 Buscar
                 <x-slot:load>
-                    <div wire:loading wire:target='x'>
+                    <div wire:loading wire:target='$refresh'>
                         <x-custom.load></x-custom.load>
                     </div>
                 </x-slot>

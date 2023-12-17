@@ -25,6 +25,11 @@ class Category extends Component
     }
     public function edit()
     {
+        ProjectCategory::find($this->editing_id)->update([
+            'title' => $this->title,
+        ]);
+        $this->cancel();
+        $this->notification()->success('Sucesso', 'Categoria atualizada');
     }
     public function loadEdit(ProjectCategory $category)
     {
@@ -37,8 +42,13 @@ class Category extends Component
             'title','editing_id'
         ]);
     }
-    public function search()
+    public function search(string $search = '')
     {
+       $result =  empty($search) ?
+       ProjectCategory::cursor()
+       :
+       ProjectCategory::where('title','like',"%$search%")->cursor();
+       return $result;
     }
     public function delete()
     {
@@ -46,7 +56,7 @@ class Category extends Component
     public function render()
     {
         return view('livewire.admin.category', [
-            'categories' => ProjectCategory::cursor(),
+            'categories' => $this->search($this->title),
         ]);
     }
 }
