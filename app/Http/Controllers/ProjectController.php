@@ -10,4 +10,12 @@ class ProjectController extends Controller
     {
         return view('admin.project.index');
     }
+    public function viewCreate()
+    {
+        return view('admin.project.create');
+    }
+    public function viewUpdate()
+    {
+        return view('admin.project.update');
+    }
 }

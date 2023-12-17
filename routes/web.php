@@ -43,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::prefix('/projects')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('project.index');
+        Route::get('/create', [ProjectController::class, 'viewCreate'])->name('project.viewCreate');
+        Route::get('/update/{project}', [ProjectController::class, 'viewUpdate'])->name('project.viewUpdate');
     });
 });
 
