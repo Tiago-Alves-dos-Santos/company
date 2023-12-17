@@ -2,19 +2,19 @@
     {{-- The Master doesn't talk, he acts. --}}
     <form wire:submit='create'>
         <div>
-            <x-input label="Título *" placeholder="Site fulano" />
-            <x-textarea wire:model="comment" label="Descrição *" placeholder="Descrição do projeto" />
+            <x-input label="Título *" placeholder="Site fulano" wire:model='title'/>
+            <x-textarea label="Descrição *" placeholder="Descrição do projeto" wire:model='description'/>
         </div>
         <div class="flex flex-wrap sm:flex-nowrap">
             <div class="w-full sm:w-[50%] sm:mr-1">
-                <x-input label="Empresa *" />
+                <x-input label="Empresa *" wire:model='company_name'/>
             </div>
             <div class="w-full sm:w-[50%] ">
-                <x-input label="Cliente" />
+                <x-input label="Cliente" wire:model='client_name'/>
             </div>
         </div>
         <div>
-            <x-input type="url" label="Website" placeholder="https://endereco.site.com.br" />
+            <x-input type="url" label="Website" placeholder="https://endereco.site.com.br" wire:model='website'/>
         </div>
         <div class="flex justify-end mt-1">
             <x-custom.button type="submit"

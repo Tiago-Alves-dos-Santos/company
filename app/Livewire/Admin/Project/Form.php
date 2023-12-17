@@ -17,7 +17,11 @@ class Form extends Component
 
     public function create()
     {
-        dd('here');
+        $this->validate([
+            'title' => ['required','min:4','max:255'],
+            'description' => ['required','min:10'],
+            'company_name' => ['required','min:4','max:255'],
+        ]);
     }
 
     public function render()
