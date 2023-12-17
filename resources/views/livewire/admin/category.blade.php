@@ -24,18 +24,18 @@
             </x-custom.button>
         @else
             <x-custom.button type="button" context="success" class="mr-2" :load_livewire="true"
-                icon="ri-save-line text-lg mr-2">
+                icon="ri-save-line text-lg mr-2" wire:click='edit' wire:loading.attr="disabled">
                 Salvar
                 <x-slot:load>
-                    <div wire:loading wire:target='x'>
+                    <div wire:loading wire:target='edit'>
                         <x-custom.load></x-custom.load>
                     </div>
                 </x-slot>
             </x-custom.button>
-            <x-custom.button type="button" context="danger" :load_livewire="true" icon="ri-close-line text-lg mr-2">
+            <x-custom.button type="button" context="danger" wire:click='cancel'  wire:loading.attr="disabled" :load_livewire="true" icon="ri-close-line text-lg mr-2">
                 Cancelar
                 <x-slot:load>
-                    <div wire:loading wire:target='x'>
+                    <div wire:loading wire:target='cancel'>
                         <x-custom.load></x-custom.load>
                     </div>
                 </x-slot>
@@ -63,10 +63,10 @@
                                     <td class="flex flex-wrap justify-center">
                                         <x-custom.button type="button" wire:click='loadEdit({{ $value->id }})'
                                             :context="$value->id == $editing_id ? 'info' : 'warning'" :load_livewire="true" icon="ri-edit-line text-lg mr-2"
-                                            class="mr-2" :disabled="$value->id == $editing_id">
+                                            class="mr-2" :disabled="$value->id == $editing_id"  wire:loading.attr="disabled">
                                             Editar
                                             <x-slot:load>
-                                                <div wire:loading wire:target='x'>
+                                                <div wire:loading wire:target='loadEdit({{ $value->id }})'>
                                                     <x-custom.load></x-custom.load>
                                                 </div>
                                             </x-slot>
