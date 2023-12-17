@@ -75,7 +75,7 @@
                                             icon="ri-delete-bin-line text-lg mr-2" wire:loading.attr="disabled"
                                             x-on:confirm="{
                                                 title: 'Deseja continuar com a ação?',
-                                                description: 'Ação não poderá ser desfeita.',
+                                                description: 'Isso pode deletar outros projetos relacionados a categoria',
                                                 icon: 'question',
                                                 accept: {
                                                     label: 'Confirmar',
