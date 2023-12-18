@@ -3,14 +3,17 @@
 namespace App\Livewire\Admin\Project;
 
 use App\Facade\ServiceFactory;
-use App\Models\ProjectImages;
 use Livewire\Component;
 use App\Models\Projects;
+use App\Services\ProjectImage;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
+use WireUi\Traits\Actions;
 
 class ListImages extends Component
 {
+    use Actions, WithFileUploads;
     public ?Projects $project = null;
-    public $file;
+    public $file = null;
     public function mount(Projects $project)
     {
         $this->project = $project;
@@ -19,13 +22,21 @@ class ListImages extends Component
     {
     }
     public function add(){
+        if(!empty($this->file)){
+            $image = ServiceFactory::createProjectImage();
+            $image->setProject($this->project);
+            $image->upload($this->file);
+            $this->reset('file');
+        }else{
+            $this->notification()->warning('Atenção', 'Nenhum arquivo de upload encotrado.');
+        }
 
     }
     public function render()
     {
-        $images = ServiceFactory::createProjectImage();
+        $image = ServiceFactory::createProjectImage();
         return view('livewire.admin.project.list-images', [
-            'images' => $images->listImagesToProject($this->project->id),
+            'images' => $image->listImagesToProject($this->project->id),
             'project' => $this->project
         ]);
     }

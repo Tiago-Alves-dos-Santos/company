@@ -5,6 +5,7 @@ use App\Services\Tag;
 use App\Services\Company;
 use App\Services\Project;
 use App\Services\Service;
+use App\Services\ProjectImage;
 
 final class ServiceFactory
 {
