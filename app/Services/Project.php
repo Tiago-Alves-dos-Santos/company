@@ -28,10 +28,12 @@ final class Project extends WebSiteSections
             'website' => $data['website'],
             'company_name' => $data['company_name'],
         ]);
+        $project = $project->fresh();
+        $this->images->setProject($project);
+        ds()->clear();
         if(!empty($files)){
-            ds($files);
+            $this->images->upload($files);
         }
-        ds('here');
     }
     public function existTagService():bool
     {
