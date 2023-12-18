@@ -20,7 +20,7 @@ final class Service extends WebSiteSections
      */
     public function create(array $data): Services
     {
-        parent::create($data);
+        parent::createParent($data);
         $service = Services::create([
             'tag_id' => $this->model_tag->id,
             'title' => $data['title'],

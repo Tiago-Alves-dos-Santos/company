@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Services\Tag;
 use App\Services\Company;
+use App\Services\Project;
 use App\Services\Service;
 
 final class ServiceFactory
@@ -22,5 +23,9 @@ final class ServiceFactory
     public function createProjectCategory()
     {
         return new Category();
+    }
+    public function createProject()
+    {
+        return new Project();
     }
 }
