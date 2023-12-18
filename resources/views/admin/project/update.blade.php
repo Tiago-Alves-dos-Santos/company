@@ -29,7 +29,7 @@
                     </div>
                     <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
                         id="tabs-profile01" role="tabpanel" aria-labelledby="tabs-profile-tab01">
-                        Tab 2 content
+                        <livewire:admin.project.list-images :project="$project">
                     </div>
                 </div>
             </x-card.header>

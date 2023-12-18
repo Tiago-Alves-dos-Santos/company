@@ -28,4 +28,8 @@ final class ServiceFactory
     {
         return new Project();
     }
+    public function createProjectImage()
+    {
+        return new ProjectImage();
+    }
 }

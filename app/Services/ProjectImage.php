@@ -43,4 +43,15 @@ final class ProjectImage
         }
         return $images;
     }
+
+    public function listImagesToProject(int $project_id, int $paginate = 10){
+
+        return ProjectImages::with('project')
+            ->where('projects_id', $project_id)
+            ->cursorPaginate($paginate)->map(function ($image) {
+                $image->image = $this->path.$image->image;
+                return $image;
+            });
+
+    }
 }
