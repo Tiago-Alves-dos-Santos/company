@@ -9,14 +9,17 @@
                 <th scope="col" class="px-6 py-4">Categoria</th>
                 <th scope="col" class="px-6 py-4">Projeto</th>
                 <th scope="col" class="px-6 py-4">Empresa</th>
+                <th scope="col" class="px-6 py-4">Imagens</th>
                 <th scope="col" class="px-6 py-4">Ações</th>
               </tr>
             </thead>
             <tbody>
+              @forelse ($projects as $value)
               <tr class="border-b dark:border-neutral-500">
-                <td class="px-6 py-4 font-medium whitespace-nowrap">1</td>
-                <td class="px-6 py-4 whitespace-nowrap">Mark</td>
-                <td class="px-6 py-4">Otto</td>
+                <td class="px-6 py-4 font-medium whitespace-nowrap">{{ $value->projectCategory->title }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $value->title }}</td>
+                <td class="px-6 py-4">{{ $value->company_name }}</td>
+                <td class="px-6 py-4">{{ $value->projects_image_count }}</td>
                 <td class="flex px-6 py-4 whitespace-nowrap">
                     <x-custom.button type="button"
                         context="warning" :load_livewire="true" icon="ri-edit-line text-lg mr-2"
@@ -52,6 +55,9 @@
                     </x-custom.button>
                 </td>
               </tr>
+              @empty
+
+              @endforelse
             </tbody>
           </table>
         </div>

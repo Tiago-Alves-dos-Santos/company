@@ -16,7 +16,7 @@ class Projects extends Model
 
     /**========================RELATIONSHIP===========================*/
 
-    public function projectsCategory(): BelongsTo //have 1 categories
+    public function projectCategory(): BelongsTo //have 1 categories
     {
         return $this->belongsTo(ProjectCategory::class);
     }
