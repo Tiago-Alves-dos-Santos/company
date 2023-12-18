@@ -29,15 +29,19 @@ class Form extends Component
             'company_name' => ['required','min:4','max:255'],
         ]);
         $project = ServiceFactory::createProject();
-        $project->create([
+        $result = $project->create([
             'title' => $this->title,
             'description' => $this->description,
             'client_name' => $this->client_name,
             'website' => $this->website,
             'company_name' => $this->company_name,
         ], $this->category_id, $this->file);
+        $this->reset([
+            'category_id', 'title', 'description', 'client_name', 'website','company_name','file'
+        ]);
+        $this->notification()->success('Sucesso', "Projeto criado");
+        $this->notification()->info('Fotos do projeto', $result->count_images." foto(s) do projeto foram inseridas.");
     }
-
     public function render()
     {
         return view('livewire.admin.project.form', [

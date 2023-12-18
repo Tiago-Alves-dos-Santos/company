@@ -16,7 +16,15 @@ final class Project extends WebSiteSections
         $this->tag_name = 'tag_projects';
         $this->images = new ProjectImage();
     }
-    public function create(array $data, int $categoria_id, $files = null)
+    /**
+     * Returns an object from the created project and its images: 'null','object' or 'array of objects' .
+     * Returns the number of photos that were uploaded
+     * @param array $data
+     * @param integer $categoria_id
+     * @param [files] $files
+     * @return object
+     */
+    public function create(array $data, int $categoria_id, $files = null):object
     {
         parent::createParent($data);
         $project = Projects::create([
@@ -30,10 +38,15 @@ final class Project extends WebSiteSections
         ]);
         $project = $project->fresh();
         $this->images->setProject($project);
-        ds()->clear();
+        $images = null;
         if(!empty($files)){
-            $this->images->upload($files);
+            $images = $this->images->upload($files);
         }
+        return (object)[
+            'project' => $project,
+            'images' => $images,
+            'count_images' => count($images),
+        ];
     }
     public function existTagService():bool
     {
