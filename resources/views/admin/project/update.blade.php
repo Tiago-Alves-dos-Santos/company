@@ -25,7 +25,7 @@
                 <div class="mb-6">
                     <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
                         id="tabs-home01" role="tabpanel" aria-labelledby="tabs-home-tab01" data-te-tab-active>
-                        Tab 1 content
+                        <livewire:admin.project.form-update :project="$project">
                     </div>
                     <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
                         id="tabs-profile01" role="tabpanel" aria-labelledby="tabs-profile-tab01">

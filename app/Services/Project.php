@@ -51,11 +51,13 @@ final class Project extends WebSiteSections
         ];
     }
 
-    public function update()
+    public function update(int $id, array $data):int
     {
+        return Projects::where('id', $id)->update($data);
     }
     public function delete()
     {
+
     }
 
     public function existTagService(): bool
