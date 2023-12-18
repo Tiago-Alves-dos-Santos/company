@@ -1,6 +1,8 @@
 <?php
 namespace App\Services;
 
+use App\Models\Projects;
+use App\Services\ProjectImage;
 use App\Models\Tag as ModelTag;
 use Illuminate\Http\UploadedFile;
 use App\Services\Abstracts\WebSiteSections;
@@ -9,17 +11,27 @@ use App\Services\Abstracts\WebSiteSections;
 final class Project extends WebSiteSections
 {
     private ?ProjectImage $images = null;
-    private ?Category $category = null;
     public function __construct (){
         parent::__construct();
         $this->tag_name = 'tag_projects';
         $this->images = new ProjectImage();
-        $this->category = new Category();
     }
-    public function create(array $data, Category $category , UploadedFile $file)
+    public function create(array $data, int $categoria_id, $files = null)
     {
         parent::createParent($data);
-
+        $project = Projects::create([
+            // 'tag_id' => $this->model_tag->id,
+            'project_category_id' => $categoria_id,
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'client_name' => $data['client_name'],
+            'website' => $data['website'],
+            'company_name' => $data['company_name'],
+        ]);
+        if(!empty($files)){
+            ds($files);
+        }
+        ds('here');
     }
     public function existTagService():bool
     {
