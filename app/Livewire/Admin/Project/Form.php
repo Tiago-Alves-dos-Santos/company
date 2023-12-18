@@ -4,7 +4,6 @@ namespace App\Livewire\Admin\Project;
 
 use App\Facade\ServiceFactory;
 use App\Models\ProjectCategory;
-use GuzzleHttp\Psr7\UploadedFile;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 use WireUi\Traits\Actions;

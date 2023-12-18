@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Models\Projects;
@@ -11,7 +12,8 @@ use App\Services\Abstracts\WebSiteSections;
 final class Project extends WebSiteSections
 {
     private ?ProjectImage $images = null;
-    public function __construct (){
+    public function __construct()
+    {
         parent::__construct();
         $this->tag_name = 'tag_projects';
         $this->images = new ProjectImage();
@@ -24,7 +26,7 @@ final class Project extends WebSiteSections
      * @param [files] $files
      * @return object
      */
-    public function create(array $data, int $categoria_id, $files = null):object
+    public function create(array $data, int $categoria_id, $files = null): object
     {
         parent::createParent($data);
         $project = Projects::create([
@@ -39,7 +41,7 @@ final class Project extends WebSiteSections
         $project = $project->fresh();
         $this->images->setProject($project);
         $images = null;
-        if(!empty($files)){
+        if (!empty($files)) {
             $images = $this->images->upload($files);
         }
         return (object)[
@@ -48,14 +50,22 @@ final class Project extends WebSiteSections
             'count_images' => count($images),
         ];
     }
-    public function existTagService():bool
+
+    public function update()
+    {
+    }
+    public function delete()
+    {
+    }
+
+    public function existTagService(): bool
     {
         return $this->tag->existTag($this->tag_name);
     }
     protected function createTagService(): ModelTag
     {
         return $this->tag->create([
-            'title' => $this->tag_name ,
+            'title' => $this->tag_name,
             'surname' => 'Projetos de clientes, já concluidos ou em andamento.'
         ]);
     }
