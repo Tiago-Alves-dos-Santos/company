@@ -17,7 +17,7 @@ class ProjectImages extends Model
 
     public function project(): BelongsTo //have 1 project
     {
-        return $this->belongsTo(Projects::class);
+        return $this->belongsTo(Projects::class, 'projects_id');
     }
     /** ========================= METHODS STATIC =========================== */
 

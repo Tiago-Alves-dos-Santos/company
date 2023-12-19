@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Tag;
 use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +15,6 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(ProjectCategory::class)->nullable()->constrained();
-            $table->foreignIdFor(Tag::class)->constrained();
             $table->string('title');
             $table->text('description');
             $table->string('client_name')->nullable();
