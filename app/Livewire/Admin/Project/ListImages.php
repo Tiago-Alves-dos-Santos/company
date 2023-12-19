@@ -7,11 +7,12 @@ use Livewire\Component;
 use App\Models\Projects;
 use App\Services\ProjectImage;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Livewire\WithPagination;
 use WireUi\Traits\Actions;
 
 class ListImages extends Component
 {
-    use Actions, WithFileUploads;
+    use Actions, WithFileUploads, WithPagination;
     public ?Projects $project = null;
     public $file = null;
     public function mount(Projects $project)

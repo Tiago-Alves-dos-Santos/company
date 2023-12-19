@@ -38,4 +38,7 @@
             <h1 class="text-xl text-indigo-400">Nenhuma imagem encontrada</h1>
         @endforelse
     </div>
+    <div>
+        {{ $images->links() }}
+    </div>
 </div>

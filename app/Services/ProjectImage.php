@@ -23,35 +23,38 @@ final class ProjectImage
         if (count($files) > 1) {
             $images = [];
             foreach ($files as $value) {
-                $newName = uniqid($this->project->id."_");
+                $newName = uniqid($this->project->id . "_");
                 $this->uploadImage($value, $this->path, $newName);
 
                 $images[] = ProjectImages::create([
                     'projects_id' => $this->project->id,
-                    'title' => $this->project->title." - ".$this->project->company_name,
-                    'image' => $newName.'.'.$value->extension(),
+                    'title' => $this->project->title . " - " . $this->project->company_name,
+                    'image' => $newName . '.' . $value->extension(),
                 ]);
             }
         } else {
-            $newName = uniqid($this->project->id."_");
+            $newName = uniqid($this->project->id . "_");
             $this->uploadImage($files[0], $this->path, $newName);
             $images = ProjectImages::create([
                 'projects_id' => $this->project->id,
-                'title' => $this->project->title." - ".$this->project->company_name,
-                'image' => $newName.'.'.$files[0]->extension(),
+                'title' => $this->project->title . " - " . $this->project->company_name,
+                'image' => $newName . '.' . $files[0]->extension(),
             ]);
         }
         return $images;
     }
 
-    public function listImagesToProject(int $project_id, int $paginate = 10){
+    public function listImagesToProject(int $project_id, int $paginate = 10)
+    {
 
-        return ProjectImages::with('project')
+        $projectImages = ProjectImages::with('project')
             ->where('projects_id', $project_id)
-            ->cursorPaginate($paginate)->map(function ($image) {
-                $image->image = $this->path.$image->image;
-                return $image;
-            });
-
+            ->paginate($paginate);
+            
+        $projectImages->getCollection()->transform(function ($image) {
+            $image->image = $this->path . $image->image;
+            return $image;
+        });
+        return $projectImages;
     }
 }
