@@ -35,8 +35,8 @@ final class Company
         if (!empty($file) && !empty($operation)) {
             if ($operation == 'create') {
                 $company = $company->fresh();
-            } else if ($operation == 'update' && File::exists(public_path($this->path . '.' . $company->logo))) {
-                File::delete(public_path($this->path . '.' . $company->logo));
+            } else if ($operation == 'update' && File::exists(public_path($this->path.$company->logo))) {
+                File::delete(public_path($this->path.$company->logo));
             }
             $newName = 'solucoes_software';
             $this->uploadImage($file, $this->path, $newName, $resize);
