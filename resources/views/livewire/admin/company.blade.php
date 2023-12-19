@@ -1,7 +1,7 @@
 <div x-data="company">
     {{-- Success is as dangerous as failure. --}}
     <form wire:submit='save' enctype="multipart/form-data">
-        <div class="w-full flex justify-center flex-col items-center">
+        <div class="flex flex-col items-center justify-center w-full">
             <div class="flex justify-center border border-gray-400 w-[220px] h-max-[320px]">
                 @if ($logo && in_array($logo->getClientOriginalExtension(), ['jpg', 'jpeg', 'png']))
                     <img src="{{ $logo->temporaryUrl() }}" class="" alt="">
@@ -36,8 +36,8 @@
 
         </div>
         <div>
-            <div class="mb-3 mx-1">
-                <label for="formFile" class="mb-2 inline-block text-neutral-700 dark:text-neutral-200">
+            <div class="mx-1 mb-3">
+                <label for="formFile" class="inline-block mb-2 text-neutral-700 dark:text-neutral-200">
                     Foto do perfil
                 </label>
                 <input
@@ -67,7 +67,7 @@
             </x-custom.button>
         </div>
         @if ($errors->any())
-            <div class="mt-3 rounded-lg bg-danger-100 px-6 py-5 text-base text-danger-700" role="alert">
+            <div class="px-6 py-5 mt-3 text-base rounded-lg bg-danger-100 text-danger-700" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -82,11 +82,6 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('company', () => ({
-                open: false,
-
-                toggle() {
-                    this.open = !this.open
-                }
             }))
         })
     </script>

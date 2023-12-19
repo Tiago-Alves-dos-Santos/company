@@ -26,7 +26,7 @@ abstract class WebSiteSections
     protected abstract function createTagService(): ModelTag;
 
     /** ================================= */
-    public function create(array $data)
+    public function createParent(array $data)
     {
         $this->model_tag = $this->createTag();
     }

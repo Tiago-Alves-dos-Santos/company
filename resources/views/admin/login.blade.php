@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label for="">Senha</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3 input-group">
                             <input type="password" name="password" id="password"
                                 class="form-control  @error('password') is-invalid @enderror"
                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -41,18 +41,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="login-options">
-                    <div class="form-check">
-                        <input class="form-check-input pointer" name="remember" type="checkbox" value=""
-                            id="flexCheckDefault">
-                        <label class="form-check-label pointer" for="flexCheckDefault">
-                            Lembrar de mim
-                        </label>
-                    </div>
-
-                    <a href="#" class="link-danger">Esqueceu a senha?</a>
+               @if ($conected)
+               <div class="login-options">
+                <div class="form-check">
+                    <input class="form-check-input pointer" name="remember" type="checkbox" value=""
+                        id="flexCheckDefault">
+                    <label class="form-check-label pointer" for="flexCheckDefault">
+                        Lembrar de mim
+                    </label>
                 </div>
+
+                <a href="#" class="link-danger">Esqueceu a senha?</a>
+            </div>
+               @endif
                 <div class="row">
+                    @if ($conected)
                     <div class="col-sm-12 d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary" id="btn-login">
                             Entrar
@@ -61,6 +64,9 @@
                             </div>
                         </button>
                     </div>
+                    @else
+                        <h2 class="text-center text-danger">Sem conexão com banco.</h2>
+                    @endif
                 </div>
             </form>
             @push('script')

@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 @import 'admin/global.scss';
+//pages
+@import 'admin/page/project-update.scss';
+
+//packpages
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import 'remixicon/fonts/remixicon.css';

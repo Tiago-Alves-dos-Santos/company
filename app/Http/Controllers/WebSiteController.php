@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tag;
 use App\Models\Services;
 use Illuminate\Http\Request;
 use App\Facade\ServiceFactory;
+use App\Models\ProjectCategory;
+use App\Models\ProjectImages;
 
 class WebSiteController extends Controller
 {
@@ -13,9 +14,12 @@ class WebSiteController extends Controller
     {
         $tag = ServiceFactory::createTag();
         $tags_value = $tag->getTagsValues();
+        $images = ProjectImages::cursor();
         return view('index', [
             'tags_value' => $tags_value,
-            'services' => Services::cursor()
+            'services' => Services::cursor(),
+            'categories' => ProjectCategory::cursor(),
+            'images' => $images
         ]);
     }
 }
