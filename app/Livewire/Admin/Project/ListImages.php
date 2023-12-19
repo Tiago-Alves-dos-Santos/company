@@ -19,19 +19,23 @@ class ListImages extends Component
     {
         $this->project = $project;
     }
-    public function remove()
+    public function remove($id)
     {
+        $image = ServiceFactory::createProjectImage();
+        $image->setProject($this->project);
+        $image->delete($id);
+        $this->notification()->success('Sucesso', 'Imagen removida com sucesso.');
     }
-    public function add(){
-        if(!empty($this->file)){
+    public function add()
+    {
+        if (!empty($this->file)) {
             $image = ServiceFactory::createProjectImage();
             $image->setProject($this->project);
             $image->upload($this->file);
             $this->reset('file');
-        }else{
+        } else {
             $this->notification()->warning('Atenção', 'Nenhum arquivo de upload encotrado.');
         }
-
     }
     public function render()
     {

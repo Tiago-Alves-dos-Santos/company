@@ -29,8 +29,20 @@
                 <img src="{{ asset($value->image) }}" data-te-img="{{ asset($value->image) }}" alt="{{ $value->image }}"
                     data-te-caption="{{ $value->title }}"
                     class="w-[200px] h-[200px] cursor-zoom-in data-[te-lightbox-disabled]:cursor-auto" />
-                <div
-                    class="absolute bottom-0 right-0 px-3 py-2 bg-red-500 rounded-lg cursor-pointer z-[100] icon-delete">
+                <div class="absolute bottom-0 right-0 px-3 py-2 bg-red-500 rounded-lg cursor-pointer z-[100] icon-delete"
+                    x-on:confirm="{
+                        title: 'Deseja continuar com a ação?',
+                        description: 'A ação não poderá ser desfeita',
+                        icon: 'question',
+                        accept: {
+                            label: 'Confirmar',
+                            method: 'remove',
+                            params: {{ $value->id }}
+                        },
+                        reject: {
+                            label: 'Cancelar',
+                        }
+                    }">
                     <i class="text-white ri-delete-bin-line"></i>
                 </div>
             </div>

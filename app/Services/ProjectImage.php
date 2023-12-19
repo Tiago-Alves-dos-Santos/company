@@ -2,9 +2,10 @@
 
 namespace App\Services;
 
-use App\Models\ProjectImages;
 use App\Models\Projects;
 use App\Traits\PublicUpload;
+use App\Models\ProjectImages;
+use Illuminate\Support\Facades\File;
 
 
 final class ProjectImage
@@ -44,13 +45,20 @@ final class ProjectImage
         return $images;
     }
 
+    public function delete(int $id)
+    {
+        $image = ProjectImages::find($id);
+        File::delete(public_path($this->path.$image->image));
+        return $image->forceDelete();
+    }
+
     public function listImagesToProject(int $project_id, int $paginate = 10)
     {
 
         $projectImages = ProjectImages::with('project')
             ->where('projects_id', $project_id)
             ->paginate($paginate);
-            
+
         $projectImages->getCollection()->transform(function ($image) {
             $image->image = $this->path . $image->image;
             return $image;
