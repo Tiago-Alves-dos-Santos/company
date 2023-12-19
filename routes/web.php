@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\CustomerCompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
@@ -45,6 +46,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('project.index');
         Route::get('/create', [ProjectController::class, 'viewCreate'])->name('project.viewCreate');
         Route::get('/update/{project}', [ProjectController::class, 'viewUpdate'])->name('project.viewUpdate');
+    });
+    Route::prefix('/customer-company')->group(function () {
+        Route::get('/', [CustomerCompanyController::class, 'index'])->name('customer_company.index');
     });
 });
 
