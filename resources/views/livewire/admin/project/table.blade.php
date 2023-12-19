@@ -29,18 +29,18 @@
                                     <x-custom.button type="button" context="danger" :load_livewire="true"
                                         icon="ri-delete-bin-line text-lg mr-2" wire:loading.attr="disabled"
                                         x-on:confirm="{
-                            title: 'Deseja continuar com a ação?',
-                            description: 'Isso pode deletar outros projetos relacionados a categoria',
-                            icon: 'question',
-                            accept: {
-                                label: 'Confirmar',
-                                method: 'delete',
-                                params: ''
-                            },
-                            reject: {
-                                label: 'Cancelar',
-                            }
-                        }">
+                                            title: 'Deseja continuar com a ação?',
+                                            description: 'Isso apagará também todas as imagens do projeto',
+                                            icon: 'question',
+                                            accept: {
+                                                label: 'Confirmar',
+                                                method: 'delete',
+                                                params: '{{ $value->id }}'
+                                            },
+                                            reject: {
+                                                label: 'Cancelar',
+                                            }
+                                        }">
                                         Excluir
                                         <x-slot:load>
                                             <div wire:loading wire:target='x'>
@@ -51,6 +51,9 @@
                                 </td>
                             </tr>
                         @empty
+                        <tr>
+                            <td class="text-xl text-center text-indigo-400" colspan="5">N/A</td>
+                        </tr>
                         @endforelse
                     </tbody>
                 </table>

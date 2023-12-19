@@ -55,9 +55,13 @@ final class Project extends WebSiteSections
     {
         return Projects::where('id', $id)->update($data);
     }
-    public function delete()
+    public function delete(int $id)
     {
-
+        $project = Projects::with('projectsImage')->find($id);
+        foreach ($project->projectsImage as $value) {
+            $this->images->delete($value->id);
+        }
+        $project->delete();
     }
 
     public function existTagService(): bool
