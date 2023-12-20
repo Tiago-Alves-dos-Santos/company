@@ -24,7 +24,7 @@
                             </td>
                             <td class="flex px-6 py-4 whitespace-nowrap">
                                 <x-custom.button context="warning" icon="ri-edit-line text-lg mr-2" class="mr-2"
-                                    link="">
+                                    :link="route('customer_company.viewUpdate', ['customer' => $value->id])">
                                     Editar
                                 </x-custom.button>
                                 <x-custom.button type="button" context="danger" :load_livewire="true"

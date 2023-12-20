@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CustomerCompany;
 use Illuminate\Http\Request;
 
 class CustomerCompanyController extends Controller
@@ -14,8 +15,10 @@ class CustomerCompanyController extends Controller
     {
         return view('admin.customer_company.create');
     }
-    public function viewUpdate()
+    public function viewUpdate(CustomerCompany $customer)
     {
-        return view('admin.customer_company.update');
+        return view('admin.customer_company.update', [
+            'customer' => $customer
+        ]);
     }
 }

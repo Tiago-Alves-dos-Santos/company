@@ -50,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('/customer-company')->group(function () {
         Route::get('/', [CustomerCompanyController::class, 'index'])->name('customer_company.index');
         Route::get('/create', [CustomerCompanyController::class, 'viewCreate'])->name('customer_company.viewCreate');
-        Route::get('/update', [CustomerCompanyController::class, 'viewUpdate'])->name('customer_company.viewUpdate');
+        Route::get('/update/{customer}', [CustomerCompanyController::class, 'viewUpdate'])->name('customer_company.viewUpdate');
     });
 });
 
