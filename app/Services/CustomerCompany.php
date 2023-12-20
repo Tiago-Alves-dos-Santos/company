@@ -48,6 +48,15 @@ final class CustomerCompany extends WebSiteSections
         }
     }
 
+    public function delete(int $id)
+    {
+        $company = ModelsCustomerCompany::find($id);
+        if(!empty($company->logo) && File::exists(public_path($this->path.$company->logo))){
+            File::delete(public_path($this->path.$company->logo));
+        }
+        $company->delete();
+    }
+
     public function existTagService(): bool
     {
         return $this->tag->existTag($this->tag_name);

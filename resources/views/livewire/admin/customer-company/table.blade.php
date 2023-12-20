@@ -31,12 +31,12 @@
                                     icon="ri-delete-bin-line text-lg mr-2" wire:loading.attr="disabled"
                                     x-on:confirm="{
                                             title: 'Deseja continuar com a ação?',
-                                            description: 'Isso apagará também todas as imagens do projeto',
+                                            description: 'A ação não poderá ser desfeita.',
                                             icon: 'question',
                                             accept: {
                                                 label: 'Confirmar',
                                                 method: 'delete',
-                                                params: ''
+                                                params: '{{ $value->id }}'
                                             },
                                             reject: {
                                                 label: 'Cancelar',
