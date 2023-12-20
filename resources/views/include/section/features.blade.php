@@ -1,6 +1,6 @@
 <div class="container" data-aos="fade-up">
 
-    @if ($tags_value['TAG_FEATURES']->visible)
+    @if ($tags_value['TAG_FEATURES']->visible  ?? false)
         <header class="section-header">
             <h2>{{ $tags_value['TAG_FEATURES']->title }}</h2>
             <p>{{ $tags_value['TAG_FEATURES']->sub_title }}</p>
@@ -33,7 +33,7 @@
     <!-- / row -->
 
     <!-- Feature Tabs -->
-    @if ($tags_value['TAG_FEATURES_TAB']->visible)
+    @if ($tags_value['TAG_FEATURES_TAB']->visible  ?? false)
         <div class="row feture-tabs" data-aos="fade-up">
             <div class="col-lg-6">
                 <h3>{{ $tags_value['TAG_FEATURES_TAB']->title }}</h3>
@@ -93,7 +93,7 @@
     <!-- End Feature Tabs -->
 
     <!-- Feature Icons -->
-    @if ($tags_value['TAG_FEATURES_MOBILE']->visible)
+    @if ($tags_value['TAG_FEATURES_MOBILE']->visible  ?? false)
         <div class="row feature-icons" data-aos="fade-up">
             <h3>{{ $tags_value['TAG_FEATURES_MOBILE']->title }}</h3>
 

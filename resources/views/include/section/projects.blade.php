@@ -1,4 +1,4 @@
-@if ($tags_value['TAG_PROJECTS']->visible)
+@if ($tags_value['TAG_PROJECTS']->visible  ?? false)
 <div class="container" data-aos="fade-up">
 
     <header class="section-header">
