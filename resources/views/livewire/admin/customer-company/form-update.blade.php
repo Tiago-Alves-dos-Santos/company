@@ -1,6 +1,9 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
     <form wire:submit='save' enctype="multipart/form-data">
+        <div class="flex justify-center mb-2">
+            <img src="{{ asset("img/customer_company/".$customer->logo) }}" class='w-[200px]' alt="">
+        </div>
         <div>
             <x-input wire:model="name" label="Nome da empresa *" />
             <x-input wire:model="client_name" label="Nome do cliente *" />
