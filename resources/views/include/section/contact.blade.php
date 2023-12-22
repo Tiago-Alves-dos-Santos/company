@@ -1,8 +1,8 @@
 <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
+        <h2>Contato</h2>
+        <p>Contate-nos</p>
     </header>
 
     <div class="row gy-4">
@@ -56,21 +56,21 @@
 
                     <div class="col-md-6">
                         <input type="text" name="name" class="form-control"
-                            placeholder="Your Name" required>
+                            placeholder="Seu nome" required>
                     </div>
 
                     <div class="col-md-6 ">
                         <input type="email" class="form-control" name="email"
-                            placeholder="Your Email" required>
+                            placeholder="Seu Email" required>
                     </div>
 
                     <div class="col-md-12">
-                        <input type="text" class="form-control" name="subject" placeholder="Subject"
+                        <input type="text" class="form-control" name="subject" placeholder="Titulo do assunto(opcional)"
                             required>
                     </div>
 
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                        <textarea class="form-control" name="message" rows="6" placeholder="Conteúdo, seu texto" required></textarea>
                     </div>
 
                     <div class="text-center col-md-12">
@@ -78,7 +78,7 @@
                         <div class="error-message"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                        <button type="submit">Send Message</button>
+                        <button type="submit">Enviar mensagem</button>
                     </div>
 
                 </div>
