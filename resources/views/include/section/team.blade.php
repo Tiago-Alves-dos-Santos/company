@@ -1,8 +1,8 @@
 <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-        <h2>Team</h2>
-        <p>Our hard working team</p>
+        <h2>Equipe</h2>
+        <p>Nossa equipe de trabalho árduo</p>
     </header>
 
     <div class="row gy-4">

@@ -1,8 +1,13 @@
 <div class="container" data-aos="fade-up">
 
     <header class="section-header">
-        <h2>Testimonials</h2>
-        <p>What they are saying about us</p>
+        <h2>Depoimentos</h2>
+        <p>O que estão dizendo sobre nós</p>
+        <div class="mt-2">
+            <button style="background-color: #4154f1;border:none; padding: 5px 10px; color:white; border-radius:4px">
+                Diga-nos seu depoimento
+            </button>
+        </div>
     </header>
 
     <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
@@ -20,7 +25,7 @@
                         rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
                         risus at semper.
                     </p>
-                    <div class="profile mt-auto">
+                    <div class="mt-auto profile">
                         <img src="/img/testimonials/testimonials-1.jpg" class="testimonial-img"
                             alt="">
                         <h3>Saul Goodman</h3>
@@ -41,7 +46,7 @@
                         cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet
                         legam anim culpa.
                     </p>
-                    <div class="profile mt-auto">
+                    <div class="mt-auto profile">
                         <img src="/img/testimonials/testimonials-2.jpg" class="testimonial-img"
                             alt="">
                         <h3>Sara Wilsson</h3>
@@ -62,7 +67,7 @@
                         veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint
                         minim.
                     </p>
-                    <div class="profile mt-auto">
+                    <div class="mt-auto profile">
                         <img src="/img/testimonials/testimonials-3.jpg" class="testimonial-img"
                             alt="">
                         <h3>Jena Karlis</h3>
@@ -83,7 +88,7 @@
                         fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem
                         dolore labore illum veniam.
                     </p>
-                    <div class="profile mt-auto">
+                    <div class="mt-auto profile">
                         <img src="/img/testimonials/testimonials-4.jpg" class="testimonial-img"
                             alt="">
                         <h3>Matt Brandon</h3>
@@ -104,7 +109,7 @@
                         veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam
                         culpa fore nisi cillum quid.
                     </p>
-                    <div class="profile mt-auto">
+                    <div class="mt-auto profile">
                         <img src="/img/testimonials/testimonials-5.jpg" class="testimonial-img"
                             alt="">
                         <h3>John Larson</h3>
