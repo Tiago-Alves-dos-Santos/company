@@ -27,7 +27,7 @@ final class Project extends WebSiteSections
      */
     public function create(array $data, int $categoria_id, $files = null): object
     {
-        parent::createParent($data);
+        parent::createParent();
         $project = Projects::create([
             // 'tag_id' => $this->model_tag->id,
             'project_category_id' => $categoria_id,

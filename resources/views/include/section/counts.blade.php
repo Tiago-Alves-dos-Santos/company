@@ -1,4 +1,4 @@
-@if ($tags_value['TAG_COUNTS']->visible)
+@if ($tags_value['TAG_COUNTS']->visible  ?? false)
     <div class="container" data-aos="fade-up">
 
         <div class="row gy-4">

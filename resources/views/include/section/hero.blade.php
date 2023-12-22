@@ -1,4 +1,4 @@
-@if ($tags_value['TAG_HERO']->visible)
+@if ($tags_value['TAG_HERO']->visible ?? false)
 <div class="container">
     <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">

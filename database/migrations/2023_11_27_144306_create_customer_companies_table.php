@@ -16,9 +16,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Tag::class)->constrained();
             $table->string('name',100);
-            $table->string('logo',50);
+            $table->string('logo',250)->nullable();
             $table->string('client_name',100);
-            $table->string('website',255);
+            $table->string('website',255)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

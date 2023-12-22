@@ -6,6 +6,7 @@ use App\Services\Company;
 use App\Services\Project;
 use App\Services\Service;
 use App\Services\ProjectImage;
+use App\Services\CustomerCompany;
 
 final class ServiceFactory
 {
@@ -32,5 +33,9 @@ final class ServiceFactory
     public function createProjectImage()
     {
         return new ProjectImage();
+    }
+    public function createCustomerCompany()
+    {
+        return new CustomerCompany();
     }
 }
