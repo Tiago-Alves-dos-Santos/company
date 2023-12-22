@@ -2,8 +2,8 @@
     <div class="container" data-aos="fade-up">
 
         <header class="section-header">
-            <h2>Our Clients</h2>
-            <p>Temporibus omnis officia</p>
+            <h2>Nosso clientes</h2>
+            <p>Conheça nossos parceiros</p>
         </header>
 
         <div class="clients-slider swiper">
@@ -28,7 +28,9 @@
                     </div>
                 @endforelse
             </div>
+            @if ($customer_company->count() > 3)
             <div class="swiper-pagination"></div>
+            @endif
         </div>
     </div>
 @endif
