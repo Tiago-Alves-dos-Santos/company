@@ -55,8 +55,8 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::prefix('/team-members')->group(function () {
         Route::get('/', [TeamMemberController::class, 'index'])->name('team_member.index');
-        // Route::get('/create', [CustomerCompanyController::class, 'viewCreate'])->name('customer_company.viewCreate');
-        // Route::get('/update/{customer}', [CustomerCompanyController::class, 'viewUpdate'])->name('customer_company.viewUpdate');
+        Route::get('/create', [TeamMemberController::class, 'viewCreate'])->name('team_member.viewCreate');
+        Route::get('/update/{member}', [TeamMemberController::class, 'viewUpdate'])->name('team_member.viewUpdate');
     });
 });
 
