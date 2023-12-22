@@ -9,7 +9,10 @@
                         Novo
                     </x-custom.button>
                 </div>
-                <livewire:admin.customer-company.table>
+                <livewire:admin.customer-company.table></livewire:admin.customer-company.table>
+                <div>
+                    <h3 class="text-lg text-indigo-400">Para o slide funcionar são necessarios 5 registros de 'empresas de clientes'</h3>
+                </div>
             </x-card.header>
         </div>
     </div>
