@@ -1,4 +1,4 @@
-@extends('layout.admin', ['tab_title' => 'Time'])
+@extends('layout.admin', ['tab_title' => 'Equipe'])
 
 @section('content')
     <div class="flex justify-center w-full">

@@ -33,7 +33,15 @@ final class TeamMember extends WebSiteSections
         $company->save();
         return $company;
     }
-
+    public function getAll()
+    {
+        $team = TeamMembers::all();
+        $team->transform(function ($value) {
+            $value->profile_picture = $this->path . $value->profile_picture;
+            return $value;
+        });
+        return $team;
+    }
     public function existTagService(): bool
     {
         return $this->tag->existTag($this->tag_name);
