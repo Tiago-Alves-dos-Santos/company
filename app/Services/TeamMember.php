@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\TeamMembers;
 use App\Traits\PublicUpload;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
 use App\Services\Abstracts\WebSiteSections;
 
 final class TeamMember extends WebSiteSections
@@ -31,6 +32,19 @@ final class TeamMember extends WebSiteSections
         $this->uploadImage($file, $this->path, $newName, $resize);
         $company->profile_picture = $newName . '.' . $file->extension();
         $company->save();
+        return $company;
+    }
+    public function update(int $id,array $data, ?UploadedFile $file = null, array $resize = [])
+    {
+        $company = TeamMembers::find($id);
+        $company->update($data);
+        if(!empty($file) && File::exists(public_path($this->path.$company->profile_picture))){
+            File::delete(File::exists(public_path($this->path.$company->profile_picture)));
+            $newName = uniqid(str_replace(" ", "_", $data['name']) . '_');
+            $this->uploadImage($file, $this->path, $newName, $resize);
+            $company->profile_picture = $newName . '.' . $file->extension();
+            $company->save();
+        }
         return $company;
     }
     public function getAll()
