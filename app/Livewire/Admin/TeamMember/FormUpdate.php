@@ -2,12 +2,13 @@
 
 namespace App\Livewire\Admin\TeamMember;
 
-use App\Facade\ServiceFactory;
-use App\Models\TeamMembers;
-use App\Services\TeamMember;
 use Livewire\Component;
 use WireUi\Traits\Actions;
+use App\Models\TeamMembers;
+use App\Services\TeamMember;
 use Livewire\WithFileUploads;
+use App\Facade\ServiceFactory;
+use Illuminate\Validation\Rule;
 
 class FormUpdate extends Component
 {
@@ -37,6 +38,11 @@ class FormUpdate extends Component
             'link_facebook' => ['required','url'],
             'link_instagram' => ['required','url'],
             'description' => ['required'],
+            'file' => [ 'image', 'mimes:jpg,png,jpeg',
+                Rule::requiredIf(function () {
+                    return is_null($this->file) ? false : true;
+                })
+            ]
         ]);
         $company = ServiceFactory::createTeamMember();
         $company->update($this->member->id, [
@@ -45,7 +51,7 @@ class FormUpdate extends Component
             'facebook_link' => $this->link_facebook,
             'instagram_link' => $this->link_instagram,
             'description' => $this->description,
-        ], $this->file);
+        ], $this->file, [330, 330]);
         $this->notification()->success('Sucesso', 'Atualização realizada com sucesso');
         $this->reset('file');
     }

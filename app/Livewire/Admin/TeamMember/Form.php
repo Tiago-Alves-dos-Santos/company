@@ -33,7 +33,7 @@ class Form extends Component
             'facebook_link' => $this->link_facebook,
             'instagram_link' => $this->link_instagram,
             'description' => $this->description,
-        ], $this->file);
+        ], $this->file, [330, 330]);
         $this->notification()->success('Sucesso', 'Cadastro realizado com sucesso');
         $this->reset([
             'name','work','link_facebook','link_instagram','description', 'file'

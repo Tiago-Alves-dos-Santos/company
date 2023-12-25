@@ -39,7 +39,7 @@ final class TeamMember extends WebSiteSections
         $company = TeamMembers::find($id);
         $company->update($data);
         if(!empty($file) && File::exists(public_path($this->path.$company->profile_picture))){
-            File::delete(File::exists(public_path($this->path.$company->profile_picture)));
+            File::delete(public_path($this->path.$company->profile_picture));
             $newName = uniqid(str_replace(" ", "_", $data['name']) . '_');
             $this->uploadImage($file, $this->path, $newName, $resize);
             $company->profile_picture = $newName . '.' . $file->extension();
