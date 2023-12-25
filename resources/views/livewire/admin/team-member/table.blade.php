@@ -35,7 +35,7 @@
                                             accept: {
                                                 label: 'Confirmar',
                                                 method: 'delete',
-                                                params: ''
+                                                params: '{{ $value->id }}',
                                             },
                                             reject: {
                                                 label: 'Cancelar',

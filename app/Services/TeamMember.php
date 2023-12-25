@@ -47,6 +47,15 @@ final class TeamMember extends WebSiteSections
         }
         return $company;
     }
+
+    public function delete(int $id)
+    {
+        $company = TeamMembers::find($id);
+        if(!empty($company->profile_picture) && File::exists(public_path($this->path.$company->profile_picture))){
+            File::delete(public_path($this->path.$company->profile_picture));
+        }
+        $company->forceDelete();
+    }
     public function getAll()
     {
         $team = TeamMembers::all();
