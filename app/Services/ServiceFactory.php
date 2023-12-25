@@ -38,4 +38,8 @@ final class ServiceFactory
     {
         return new CustomerCompany();
     }
+    public function createTeamMember()
+    {
+        return new TeamMember();
+    }
 }

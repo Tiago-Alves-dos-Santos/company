@@ -17,12 +17,14 @@ class WebSiteController extends Controller
         $tags_value = $tag->getTagsValues();
         $images = ProjectImages::cursor();
         $customer_company = CustomerCompany::cursor();
+        $team = ServiceFactory::createTeamMember();
         return view('index', [
             'tags_value' => $tags_value,
             'services' => Services::cursor(),
             'categories' => ProjectCategory::cursor(),
             'images' => $images,
-            'customer_company' => $customer_company
+            'customer_company' => $customer_company,
+            'team' => $team->getAll()
         ]);
     }
 }

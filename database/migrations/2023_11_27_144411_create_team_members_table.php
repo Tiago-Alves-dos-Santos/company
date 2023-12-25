@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(Tag::class)->constrained();
             $table->string('name',50);
             $table->string('work',50);
-            $table->string('profile_picture',50);
+            $table->string('profile_picture',100)->nullable();
             $table->string('facebook_link',255);
             $table->string('instagram_link',255);
             $table->text('description');
