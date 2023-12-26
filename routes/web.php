@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContentController;
@@ -28,12 +29,13 @@ Route::get('/', [WebSiteController::class,'index'])->name('website');
 
 
 //administrator routes users(admin)
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/company', [CompanyController::class, 'index'])->name('company');
     Route::get('/tag', [TagController::class, 'index'])->name('tag');
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/profile-information', [UserController::class, 'profileInformation'])->name('user.profile-information');
+    Route::get('/admin', [AdminController::class, 'index'])->middleware('admin_level:first')->name('admin.index');
 
     Route::prefix('/content')->group(function () {
         Route::post('/saveJson', [ContentController::class, 'saveJson'])->name('content.saveJson');
