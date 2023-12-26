@@ -4,11 +4,11 @@
         <div>
             <x-input wire:model="name" label="Nome *" />
             <x-input wire:model="email" label="Email *" />
-            <x-input wire:model="password" label="Senha *" />
-            <x-input wire:model="password_confirmation" label="Confirmar *" />
+            <x-input wire:model="password" type='password' label="Senha *" />
+            <x-input wire:model="password_confirmation" type='password' label="Confirmar *" />
         </div>
         <div class="mt-2 cursor-pointer">
-            <x-checkbox id="right-label" label="Total acesso(first)" wire:model="level" class="cursor-pointer" />
+            <x-checkbox id="right-label" label="Total acesso(first)" wire:model.lazy="level" class="cursor-pointer" />
         </div>
         <div class="flex justify-end mt-2">
             <x-custom.button type="submit" context="primary" :load_livewire="true" icon="ri-save-line text-lg mr-2"

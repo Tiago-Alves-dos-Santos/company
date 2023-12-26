@@ -15,7 +15,7 @@ class Table extends Component
     public function delete(int $id)
     {
         ServiceFactory::createAdmin()->delete($id);
-        $this->notification()->success('Sucesso','Eclusão realizada com sucesso');
+        $this->notification()->success('Sucesso','Exclusão realizada com sucesso');
     }
     #[On('admin.admin.table.render')]
     public function render()

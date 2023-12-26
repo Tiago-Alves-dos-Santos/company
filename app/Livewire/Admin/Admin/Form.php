@@ -23,8 +23,9 @@ class Form extends Component
             'email' => $this->email,
             'password' => $this->password,
             'password_confirmation' => $this->password_confirmation,
-            'level' => $this->level
+            'level_access' => $this->level
         ]);
+        // $admin->sendEmailVerificationNotification();
         $this->dispatch('close-modal', modal_close_id: 'close-modal-button');
         $this->dispatch('admin.admin.table.render');
         $this->notification()->success('Succeso','Cadastro realizado com sucesso');
