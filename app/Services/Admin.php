@@ -5,9 +5,10 @@ use App\Models\User;
 
 final class Admin
 {
-    public function create(array $data)
+    public function delete(int $id)
     {
-        $admin = User::create($data);
-        return $admin;
+        User::where('id', $id)->delete();
+        //send email, saying the motive of deletion
+        //create trait of email?
     }
 }
