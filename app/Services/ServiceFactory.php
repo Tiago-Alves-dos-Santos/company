@@ -42,4 +42,8 @@ final class ServiceFactory
     {
         return new TeamMember();
     }
+    public function createAdmin()
+    {
+        return new Admin();
+    }
 }
