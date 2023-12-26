@@ -28,10 +28,11 @@ h5,
 h6 {
     font-family: "Nunito", sans-serif;
 }
+
 /*--------------------------------------------------------------
   # Breadcrumbs
   --------------------------------------------------------------*/
-  .breadcrumbs {
+.breadcrumbs {
     padding: 15px 0;
     background: #012970;
     min-height: 40px;
@@ -124,6 +125,18 @@ h6 {
 
 /* =================MODAL==================*/
 
-.modal-backdrop{
+.modal-backdrop {
     --bs-backdrop-zindex: 100;
+}
+
+/* Estilo personalizado para o botão */
+.btn-facebook {
+    background-color: #3b5998;
+    color: #fff;
+    border: none;
+}
+
+.btn-facebook:hover {
+    background-color: #2d4373;
+    color: #fff;
 }

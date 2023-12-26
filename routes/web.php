@@ -64,5 +64,6 @@ Route::middleware(['auth','verified'])->group(function () {
 });
 
 Route::prefix('/client')->group(function () {
-    Route::get('/login/return', [ClientController::class, 'getToken'])->name('client.getToken');
+    Route::post('/login', [ClientController::class, 'login'])->name('client.login');
+    Route::get('/auth/facebook/callback', [ClientController::class, 'getToken'])->name('client.getToken');
 });

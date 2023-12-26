@@ -61,7 +61,8 @@
             </li> --}}
 
             <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
-            <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal" data-bs-target="#loginClient">Login</a></li>
+            <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal"
+                    data-bs-target="#loginClient">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
@@ -73,16 +74,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="loginClientLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="loginClientLabel">Login</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form action="{{ route('client.login') }}" method="POST" class="d-flex justify-content-center">
+                    @csrf
+                    @if (AuthClient::check())
+
+                    @else
+                    <button type="submit" class="btn btn-lg btn-block btn-facebook">
+                        <i class="mr-2 ri-facebook-fill"></i> Login com Facebook
+                    </button>
+                    @endif
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
         </div>
     </div>
 </div>

@@ -11,4 +11,9 @@ class ClientController extends Controller
     {
         return Socialite::driver('facebook')->redirect();
     }
+    public function getToken(Request $request)
+    {
+        $user = Socialite::driver('facebook')->user();
+        dd($user);
+    }
 }
