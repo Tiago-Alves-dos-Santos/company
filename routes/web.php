@@ -35,7 +35,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('/tag', [TagController::class, 'index'])->name('tag');
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/profile-information', [UserController::class, 'profileInformation'])->name('user.profile-information');
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin', [AdminController::class, 'index'])->middleware('admin_level:first')->name('admin.index');
 
     Route::prefix('/content')->group(function () {
         Route::post('/saveJson', [ContentController::class, 'saveJson'])->name('content.saveJson');
