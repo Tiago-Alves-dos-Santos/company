@@ -17,15 +17,14 @@ class Form extends Component
     public bool $level = false;
     public function create()
     {
-        $admin = new CreateNewUser();
-        $admin->create([
+        $admin_create = new CreateNewUser();
+        $admin = $admin_create->create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
             'password_confirmation' => $this->password_confirmation,
             'level_access' => $this->level
         ]);
-        // $admin->sendEmailVerificationNotification();
         $this->dispatch('close-modal', modal_close_id: 'close-modal-button');
         $this->dispatch('admin.admin.table.render');
         $this->notification()->success('Succeso','Cadastro realizado com sucesso');

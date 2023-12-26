@@ -29,7 +29,7 @@ Route::get('/', [WebSiteController::class,'index'])->name('website');
 
 
 //administrator routes users(admin)
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/company', [CompanyController::class, 'index'])->name('company');
     Route::get('/tag', [TagController::class, 'index'])->name('tag');
