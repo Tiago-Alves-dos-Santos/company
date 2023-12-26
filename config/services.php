@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID','1038887790689766'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET', 'ba753e96d3d1a6cf235fbd6775681a63'),
+        'redirect' => env('FACEBOOK_REDIRECT_URI', route('client.getToken'))
+    ]
+
 ];

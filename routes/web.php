@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CustomerCompanyController;
@@ -62,3 +63,6 @@ Route::middleware(['auth','verified'])->group(function () {
     });
 });
 
+Route::prefix('/client')->group(function () {
+    Route::get('/login/return', [ClientController::class, 'getToken'])->name('client.getToken');
+});
