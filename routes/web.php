@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContentController;
@@ -34,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/tag', [TagController::class, 'index'])->name('tag');
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/profile-information', [UserController::class, 'profileInformation'])->name('user.profile-information');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
     Route::prefix('/content')->group(function () {
         Route::post('/saveJson', [ContentController::class, 'saveJson'])->name('content.saveJson');
