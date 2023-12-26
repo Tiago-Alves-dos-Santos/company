@@ -14,14 +14,28 @@
                      </thead>
                      <tbody>
                          @forelse ($admins as $value)
-                         <tr class="border-b dark:border-neutral-500">
-                            <td class="px-6 py-4 font-medium whitespace-nowrap">{{ $value->name }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $value->email }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $value->level_access }}</td>
-                            <td class="flex px-6 py-4 whitespace-nowrap">
-                                <x-custom.button type="button" context="danger" :load_livewire="true"
-                                    icon="ri-delete-bin-line text-lg mr-2" wire:loading.attr="disabled"
-                                    x-on:confirm="{
+                             <tr class="border-b dark:border-neutral-500">
+                                 <td class="px-6 py-4 font-medium whitespace-nowrap">{{ $value->name }}</td>
+                                 <td class="px-6 py-4 whitespace-nowrap">{{ $value->email }}</td>
+                                 @if ($value->level_access == 'first')
+                                     <td class="px-6 py-4 whitespace-nowrap">
+                                         <span
+                                             class="inline-block whitespace-nowrap rounded-full bg-success-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-success-700">
+                                             1
+                                         </span>
+                                     </td>
+                                 @else
+                                     <td class="px-6 py-4 whitespace-nowrap">
+                                         <span
+                                             class="inline-block whitespace-nowrap rounded-full bg-info-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-info-800">
+                                             2
+                                         </span>
+                                     </td>
+                                 @endif
+                                 <td class="flex px-6 py-4 whitespace-nowrap">
+                                     <x-custom.button type="button" context="danger" :load_livewire="true"
+                                         icon="ri-delete-bin-line text-lg mr-2" wire:loading.attr="disabled"
+                                         x-on:confirm="{
                                            title: 'Deseja continuar com a ação?',
                                            description: 'A ação não poderá ser desfeita.',
                                            icon: 'question',
@@ -34,19 +48,19 @@
                                                label: 'Cancelar',
                                            }
                                        }">
-                                    Excluir
-                                    <x-slot:load>
-                                        <div wire:loading wire:target='x'>
-                                            <x-custom.load></x-custom.load>
-                                        </div>
-                                    </x-slot>
-                                </x-custom.button>
-                            </td>
-                        </tr>
+                                         Excluir
+                                         <x-slot:load>
+                                             <div wire:loading wire:target='x'>
+                                                 <x-custom.load></x-custom.load>
+                                             </div>
+                                         </x-slot>
+                                     </x-custom.button>
+                                 </td>
+                             </tr>
                          @empty
-                        <tr>
-                            <td colspan="4" class="font-bold text-center">N/A</td>
-                        </tr>
+                             <tr>
+                                 <td colspan="4" class="font-bold text-center">N/A</td>
+                             </tr>
                          @endforelse
 
                      </tbody>
