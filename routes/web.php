@@ -61,6 +61,9 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::get('/create', [TeamMemberController::class, 'viewCreate'])->name('team_member.viewCreate');
         Route::get('/update/{member}', [TeamMemberController::class, 'viewUpdate'])->name('team_member.viewUpdate');
     });
+    Route::prefix('/depoiment')->group(function () {
+        Route::get('/', [ClientController::class, 'viewFeedbacks'])->name('feedback.viewFeedbacks');
+    });
 });
 
 Route::prefix('/client')->group(function () {

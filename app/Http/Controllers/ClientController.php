@@ -77,4 +77,9 @@ class ClientController extends Controller
     {
         AuthClient::logout();
     }
+    /*=============================ADMIN CONTROL================================*/
+    public function viewFeedbacks()
+    {
+        return view('admin.feedback');
+    }
 }
