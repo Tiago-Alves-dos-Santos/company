@@ -11,12 +11,20 @@ class Table extends Component
 {
     use Actions;
     public string $search = 'inactive';
-    public function delete(int $id){
+    public function delete(int $id)
+    {
         $feedback = ServiceFactory::createFeedback();
         $feedback->delete($id);
         $this->notification()->success('Sucesso', 'Deletado com sucesso');
     }
-    private function filter() {
+
+    public function toggleVisible(int $id)
+    {
+        $feedback = ServiceFactory::createFeedback();
+        $feedback->toggleVisible($id);
+    }
+    private function filter()
+    {
         $feedback = Feedback::query()->with('client');
         switch ($this->search) {
             case 'active':

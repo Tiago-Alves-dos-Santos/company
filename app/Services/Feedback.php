@@ -31,6 +31,11 @@ final class Feedback extends WebSiteSections
     public function delete(int $id) {
         ModelFeedback::find($id)->delete();
     }
+    public function toggleVisible(int $id) {
+        $feedback = ModelFeedback::find($id);
+        $feedback->visible = !$feedback->visible;
+        $feedback->save();
+    }
     public function existTagService():bool
     {
         return $this->tag->existTag($this->tag_name);
