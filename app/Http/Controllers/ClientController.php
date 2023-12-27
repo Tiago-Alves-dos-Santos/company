@@ -49,9 +49,9 @@ class ClientController extends Controller
 
     public function depoiment(Request $request)
     {
-       $request->validateWithBag('depoiment',[
-            'rating' => ['required','integer', 'min:0','max:5'],
-            'work' => ['required','min:3', 'max:255'],
+        $request->validateWithBag('depoiment', [
+            'rating' => ['required', 'integer', 'min:0', 'max:5'],
+            'work' => ['required', 'min:3', 'max:255'],
             'feedback' => ['required']
         ], [], [
             'rating' => 'Avaliação',
@@ -66,7 +66,11 @@ class ClientController extends Controller
             'client_id' => AuthClient::user()->id
         ];
         $feedback->create($data);
-        return redirect()->back()->with('flash','Depoimento enviado com sucesso. Agora está em fase de análise. ');
+        return redirect()->back()->with('flash', 'Depoimento enviado com sucesso. Agora está em fase de análise. ');
+    }
+
+    public function sendContact()
+    {
     }
 
     public function logout()

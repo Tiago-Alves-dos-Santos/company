@@ -30,8 +30,14 @@
                             <span class="form-text d-block">
                                 Ex: Vendedor, Dono - Amigos&Cia
                             </span>
+                            @if (AuthClient::check() && empty(old('work')))
+                            <input type="text" name="work" id="" class="form-control" placeholder=""
+                                value="{{ AuthClient::user()->work }}">
+                            @else
                             <input type="text" name="work" id="" class="form-control" placeholder=""
                                 value="{{ old('work') ?? '' }}">
+                            @endif
+
                         </div>
                     </div>
                     <div class="row">
