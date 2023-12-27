@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Client;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\Schema;
@@ -16,9 +17,9 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Tag::class)->constrained();
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(Client::class)->constrained();
             $table->tinyInteger('rating');
-            $table->string('feedback',255);
+            $table->text('feedback');
             $table->boolean('visible')->default(false);
             $table->timestamps();
             $table->softDeletes();

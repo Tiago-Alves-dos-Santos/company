@@ -6,9 +6,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('client.depoiment') }}" method="POST" novalidate>
+                <form action="{{ route('client.depoiment') }}" method="POST" novalidate onsubmit="showLoad(this)">
                     @csrf
-                    <input type="hidden" name="note" value="-1" id="note">
+                    <input type="hidden" name="rating" value="-1" id="note">
                     <div class="mb-2 row">
                         <div class="col-md-12">
                             <h4>De 0 a 5 qual nota nos dá:</h4>
@@ -30,7 +30,8 @@
                             <span class="form-text d-block">
                                 Ex: Vendedor, Dono - Amigos&Cia
                             </span>
-                            <input type="text" name="work" id="" class="form-control" placeholder="" value="{{ old('work') ?? '' }}">
+                            <input type="text" name="work" id="" class="form-control" placeholder=""
+                                value="{{ old('work') ?? '' }}">
                         </div>
                     </div>
                     <div class="row">
@@ -39,15 +40,21 @@
                                 <label for="">Sobre a empresa, o que pensa Sr(a):
                                     {{ AuthClient::user()->name }}</label>
                             @endif
-                            <textarea name="content" id="" cols="30" rows="10" class="form-control">{{ old('content') ?? '' }}</textarea>
+                            <textarea name="feedback" id="" cols="30" rows="10" class="form-control">{{ old('feedback') ?? '' }}</textarea>
                             <span class="form-text d-block">
-                                Atenção! Por favor não usar de baixo linguajar no depoimento, caso não cumpra esse aviso seu depoimento não sera exibido
+                                Atenção! Por favor não usar de baixo linguajar no depoimento, caso não cumpra esse aviso
+                                seu depoimento não sera exibido
                             </span>
                         </div>
                     </div>
                     <div class="mt-2 row">
                         <div class="col-sm-12 d-flex justify-content-end ">
-                            <button type="submit" class="btn btn-success">Enviar</button>
+                            <button type="submit" class="btn btn-success">
+                                Enviar
+                                <div class="load spinner-border spinner-border-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </button>
                         </div>
                     </div>
                     @if ($errors->hasBag('depoiment'))
@@ -132,8 +139,9 @@
             <div class="swiper-slide">
                 <div class="testimonial-item">
                     <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                            class="bi bi-star-fill"></i>
                     </div>
                     <p>
                         Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem
@@ -235,7 +243,6 @@
             } else if (position > 0 && position < max_index) {
                 for (let i = 0; i <= position; i++) {
                     stars[i].classList.add('selected-star');
-                    console.log(i);
                 }
                 for (let i = (position + 1); i <= max_index; i++) {
                     stars[i].classList.remove('selected-star');

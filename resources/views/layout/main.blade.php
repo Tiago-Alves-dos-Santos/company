@@ -54,7 +54,7 @@
     <script src="{{ asset('js/glightbox/glightbox.min.js') }}"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     @if (session()->has('flash'))
-    <script>
+        <script>
             $.toast({
                 heading: 'Sucesso',
                 text: "{{ session('flash') }}",
@@ -64,8 +64,19 @@
                 loaderBg: '#ffe500', // To change the background
                 hideAfter: 8000
             })
-    </script>
+        </script>
     @endif
+    <script>
+        /* ----------------LOGIN LOAD----------------*/
+        document.querySelectorAll('.load').forEach(element => {
+            element.style.display = 'none';
+        });
+        showLoad = (form) => {
+            form.querySelector('.load').style.display = 'inline-block';
+            form.querySelector('.btn').setAttribute('disabled', true);
+        }
+        /* ----------------END-LOGIN LOAD----------------*/
+    </script>
     @stack('script')
 </body>
 

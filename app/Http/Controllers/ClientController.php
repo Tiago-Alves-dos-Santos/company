@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facade\AuthClient;
+use App\Facade\ServiceFactory;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -49,14 +50,22 @@ class ClientController extends Controller
     public function depoiment(Request $request)
     {
        $request->validateWithBag('depoiment',[
-            'note' => ['required','integer', 'min:0','max:5'],
+            'rating' => ['required','integer', 'min:0','max:5'],
             'work' => ['required','min:3', 'max:255'],
-            'content' => ['required']
+            'feedback' => ['required']
         ], [], [
-            'note' => 'Avaliação',
+            'rating' => 'Avaliação',
             'work' => 'emprego, trabalho, função',
-            'content' => 'depoimento',
+            'feedback' => 'depoimento',
         ]);
+        $feedback = ServiceFactory::createFeedback();
+        $client = AuthClient::user();
+        $client->work = $request->work;
+        $data = [
+            ...$request->except(['_token', 'work']),
+            'client_id' => AuthClient::user()->id
+        ];
+        $feedback->create($data);
         return redirect()->back()->with('flash','Depoimento enviado com sucesso. Agora está em fase de análise. ');
     }
 
