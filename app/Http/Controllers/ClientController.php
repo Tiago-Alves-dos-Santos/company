@@ -24,13 +24,12 @@ class ClientController extends Controller
                 # code...
                 break;
         }
-
     }
     public function getToken(Request $request)
     {
         $user = Socialite::driver('facebook')->user();
         $client = null;
-        if(!Client::where('facebook_id', $user->id)->exists()){
+        if (!Client::where('facebook_id', $user->id)->exists()) {
             $client = Client::create([
                 'name' => $user->name,
                 'email' => $user->email,
@@ -40,15 +39,20 @@ class ClientController extends Controller
                 'profile_photo_default' => $user->avatar
             ]);
             $client = $client->fresh();
-
-        }else{
+        } else {
             $client = Client::where('facebook_id', $user->id)->first();
         }
         AuthClient::login($client);
         return redirect()->route('website');
     }
 
-    public function logout(){
+    public function depoiment(Request $request)
+    {
+        dd('here');
+    }
+
+    public function logout()
+    {
         AuthClient::logout();
     }
 }

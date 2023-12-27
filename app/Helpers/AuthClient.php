@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Helpers;
 
 use App\Models\Client;
@@ -9,18 +10,23 @@ use App\Models\Client;
 final class AuthClient
 {
     private Client $client;
-    public function check():bool
+    public function check(): bool
     {
         return session()->has('login_client') && session('login_client');
     }
-    public function login(Client $client):void
+    public function login(Client $client): void
     {
         session([
             'client' => $client,
             'login_client' => true
         ]);
     }
-    public function logout():void
+
+    public function user(): Client
+    {
+        return session('client');
+    }
+    public function logout(): void
     {
         session()->flush();
     }

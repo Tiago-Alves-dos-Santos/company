@@ -44,6 +44,7 @@
     <script src="{{ asset('js/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('js/glightbox/glightbox.min.js') }}"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
+    @stack('script')
 </body>
 
 </html>
