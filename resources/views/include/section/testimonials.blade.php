@@ -30,7 +30,7 @@
                             <span class="form-text d-block">
                                 Ex: Vendedor, Dono - Amigos&Cia
                             </span>
-                            <input type="text" name="work" id="" class="form-control" placeholder="">
+                            <input type="text" name="work" id="" class="form-control" placeholder="" value="{{ old('work') ?? '' }}">
                         </div>
                     </div>
                     <div class="row">
@@ -39,7 +39,10 @@
                                 <label for="">Sobre a empresa, o que pensa Sr(a):
                                     {{ AuthClient::user()->name }}</label>
                             @endif
-                            <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="content" id="" cols="30" rows="10" class="form-control">{{ old('content') ?? '' }}</textarea>
+                            <span class="form-text d-block">
+                                Atenção! Por favor não usar de baixo linguajar no depoimento, caso não cumpra esse aviso seu depoimento não sera exibido
+                            </span>
                         </div>
                     </div>
                     <div class="mt-2 row">

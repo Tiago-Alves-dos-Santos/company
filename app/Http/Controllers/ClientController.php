@@ -57,6 +57,7 @@ class ClientController extends Controller
             'work' => 'emprego, trabalho, função',
             'content' => 'depoimento',
         ]);
+        return redirect()->back()->with('flash','Depoimento enviado com sucesso. Agora está em fase de análise. ');
     }
 
     public function logout()
