@@ -20,7 +20,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $value->client->work }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $value->rating }}/5</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    @if ($value->visible)
+                                    @if (!empty($value->deleted_at))
+                                        <span
+                                            class="inline-block whitespace-nowrap rounded-full bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700">
+                                            DELETADO
+                                        </span>
+                                    @elseif($value->visible)
                                         <span
                                             class="inline-block whitespace-nowrap rounded-full bg-success-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-success-700">
                                             ATIVO
@@ -34,7 +39,8 @@
                                 </td>
                                 <td class="flex justify-end px-6 py-4">
                                     <x-custom.dropdown.button title="Ações" context='primary'>
-                                        <x-custom.dropdown.link title="{{ $value->visible ? 'Inativar' :'Ativar' }}" wire:click='toggleVisible({{ $value->id }})'></x-custom.dropdown.link>
+                                        <x-custom.dropdown.link title="{{ $value->visible ? 'Inativar' : 'Ativar' }}"
+                                            wire:click='toggleVisible({{ $value->id }})'></x-custom.dropdown.link>
                                         <x-custom.dropdown.link title="Excluir"
                                             x-on:confirm="{
                                             title: 'Deseja continuar com a ação?',

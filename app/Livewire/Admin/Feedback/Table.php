@@ -6,11 +6,13 @@ use Livewire\Component;
 use App\Models\Feedback;
 use WireUi\Traits\Actions;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use App\Facade\ServiceFactory;
 
 class Table extends Component
 {
     use Actions;
+    #[Url]
     public string $search = 'inactive';
     public function delete(int $id)
     {
