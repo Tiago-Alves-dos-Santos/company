@@ -65,6 +65,7 @@ class ClientController extends Controller
             ...$request->except(['_token', 'work']),
             'client_id' => AuthClient::user()->id
         ];
+        $client->save();
         $feedback->create($data);
         return redirect()->back()->with('flash', 'Depoimento enviado com sucesso. Agora está em fase de análise. ');
     }

@@ -1,6 +1,7 @@
 @props([
     'title' => 'title',
     'context' => ['primary', 'info', 'danger', 'warning', 'success'],
+    'icon' => ''
 ])
 @php
     $style = '';
@@ -36,6 +37,7 @@
       aria-expanded="false"
       data-te-ripple-init
       data-te-ripple-color="light">
+      <i class="mr-2 text-lg {{ $icon }}"></i>
       {{ $title }}
       <span class="w-2 ml-2">
         <svg
@@ -54,6 +56,7 @@
       class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
       aria-labelledby="dropdownMenuButton{{ $title }}"
       data-te-dropdown-menu-ref>
+
       {{ $slot }}
     </ul>
   </div>
