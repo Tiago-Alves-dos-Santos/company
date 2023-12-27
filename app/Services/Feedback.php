@@ -27,6 +27,10 @@ final class Feedback extends WebSiteSections
         $feedback = ModelFeedback::create($data);
         return $feedback;
     }
+
+    public function delete(int $id) {
+        ModelFeedback::find($id)->delete();
+    }
     public function existTagService():bool
     {
         return $this->tag->existTag($this->tag_name);

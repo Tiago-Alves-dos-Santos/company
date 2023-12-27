@@ -35,7 +35,20 @@
                                 <td class="flex justify-end px-6 py-4">
                                     <x-custom.dropdown.button title="Ações" context='primary'>
                                         <x-custom.dropdown.link title="Ativar"></x-custom.dropdown.link>
-                                        <x-custom.dropdown.link title="Excluir"></x-custom.dropdown.link>
+                                        <x-custom.dropdown.link title="Excluir"
+                                            x-on:confirm="{
+                                            title: 'Deseja continuar com a ação?',
+                                            description: 'A ação não poderá ser desfeita.',
+                                            icon: 'question',
+                                            accept: {
+                                                label: 'Confirmar',
+                                                method: 'delete',
+                                                params: '{{ $value->id }}',
+                                            },
+                                            reject: {
+                                                label: 'Cancelar',
+                                            }
+                                        }"></x-custom.dropdown.link>
                                     </x-custom.dropdown.button>
                                 </td>
                             </tr>
