@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Tag::class)->constrained();
-            $table->json('content');
+            $table->json('content')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,6 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\User::factory(2)->create();
+        \App\Models\User::create([
+            'name' => 'Tiago Alves dos Santos de Oliveira',
+            'email' => 'tiagooliveiraaso@gmail.com',
+            'password' => bcrypt('02022001'),
+            'email_verified_at' => now(),
+            'level_access' => 'first'
+        ]);
         $this->startTagsWithContents();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
