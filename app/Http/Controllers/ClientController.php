@@ -48,7 +48,15 @@ class ClientController extends Controller
 
     public function depoiment(Request $request)
     {
-        dd('here');
+       $request->validateWithBag('depoiment',[
+            'note' => ['required','integer', 'min:0','max:5'],
+            'work' => ['required','min:3', 'max:255'],
+            'content' => ['required']
+        ], [], [
+            'note' => 'Avaliação',
+            'work' => 'emprego, trabalho, função',
+            'content' => 'depoimento',
+        ]);
     }
 
     public function logout()

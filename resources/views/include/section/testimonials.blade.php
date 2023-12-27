@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('client.depoiment') }}" method="POST">
+                <form action="{{ route('client.depoiment') }}" method="POST" novalidate>
                     @csrf
                     <input type="hidden" name="note" value="-1" id="note">
                     <div class="mb-2 row">
@@ -20,6 +20,7 @@
                                     onmouseout="starMouseOut({{ $i }})"
                                     onclick="starClick({{ $i }})" />
                             @endfor
+
                         </div>
                     </div>
 
@@ -35,7 +36,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             @if (AuthClient::check())
-                                <label for="">Sobre a empresa, o que pensa Sr(a): {{ AuthClient::user()->name }}</label>
+                                <label for="">Sobre a empresa, o que pensa Sr(a):
+                                    {{ AuthClient::user()->name }}</label>
                             @endif
                             <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
                         </div>
@@ -45,6 +47,15 @@
                             <button type="submit" class="btn btn-success">Enviar</button>
                         </div>
                     </div>
+                    @if ($errors->hasBag('depoiment'))
+                        <div class="mt-2 alert alert-danger" role="alert">
+                            <ul>
+                                @foreach ($errors->depoiment->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                 </form>
             </div>
@@ -52,6 +63,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="container" data-aos="fade-up">
 
@@ -179,6 +191,12 @@
 
 </div>
 @push('script')
+    @if ($errors->hasBag('depoiment'))
+        <script type="module">
+            const feedbacktModal = new window.bootstrap.Modal('#feedback-client');
+            feedbacktModal.show();
+        </script>
+    @endif
     <script>
         /* ----------------STARSTORE----------------*/
         const stars = document.querySelectorAll('.star');
