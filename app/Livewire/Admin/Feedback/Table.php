@@ -2,10 +2,11 @@
 
 namespace App\Livewire\Admin\Feedback;
 
-use App\Facade\ServiceFactory;
-use App\Models\Feedback;
 use Livewire\Component;
+use App\Models\Feedback;
 use WireUi\Traits\Actions;
+use Livewire\Attributes\On;
+use App\Facade\ServiceFactory;
 
 class Table extends Component
 {
@@ -22,6 +23,28 @@ class Table extends Component
     {
         $feedback = ServiceFactory::createFeedback();
         $feedback->toggleVisible($id);
+    }
+    #[On('livewire.admin.feedback.setSearch')]
+    public function setSearch(string $search){
+        $this->search = $search;
+        $name = '';
+        switch ($this->search) {
+            case 'active':
+                $name = 'Ativos';
+                break;
+            case 'inactive':
+                $name = 'Inativos';
+                break;
+            case 'excluded':
+                $name = 'Deletados';
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        $this->dispatch('view_admin_feedback', title: $name);
     }
     private function filter()
     {
