@@ -61,8 +61,13 @@
             </li> --}}
 
             <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+            @if (!AuthClient::check())
             <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal"
-                    data-bs-target="#loginClient">Login</a></li>
+                data-bs-target="#loginClient">Login</a></li>
+            @else
+            <li><a class="getstarted scrollto bg-danger" href="#" data-bs-toggle="modal"
+                data-bs-target="#loginClient">Encerrar</a></li>
+            @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
@@ -81,9 +86,11 @@
                 <form action="{{ route('client.login') }}" method="POST" class="d-flex justify-content-center">
                     @csrf
                     @if (AuthClient::check())
-
+                    <button type="submit" name="action" value="logout" class="btn btn-lg btn-block btn-danger">
+                        Encerrar sessão
+                    </button>
                     @else
-                    <button type="submit" class="btn btn-lg btn-block btn-facebook">
+                    <button type="submit" name="action" value="login" class="btn btn-lg btn-block btn-facebook">
                         <i class="mr-2 ri-facebook-fill"></i> Login com Facebook
                     </button>
                     @endif

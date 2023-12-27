@@ -15,7 +15,6 @@ final class AuthClient
     }
     public function login(Client $client):void
     {
-        $this->client = $client;
         session([
             'client' => $client,
             'login_client' => true
