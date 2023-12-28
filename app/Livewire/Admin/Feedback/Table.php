@@ -27,6 +27,12 @@ class Table extends Component
         $feedback = ServiceFactory::createFeedback();
         $feedback->toggleVisible($id);
     }
+
+    public function showFeedback(int $id)
+    {
+        $this->dispatch('admin_feedback_table_showFeedback', feedback: Feedback::withTrashed()->find($id)->feedback);
+    }
+
     #[On('livewire.admin.feedback.setSearch')]
     public function setSearch(string $search){
         $this->search = $search;
