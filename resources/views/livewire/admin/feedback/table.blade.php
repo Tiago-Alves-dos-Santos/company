@@ -42,6 +42,7 @@
                                     @endif
                                 </td>
                                 <td class="flex justify-end px-6 py-4">
+                                    @if (empty($value->deleted_at))
                                     <x-custom.dropdown.button title="Ações" context='primary'>
                                         <x-custom.dropdown.link title="{{ $value->visible ? 'Inativar' : 'Ativar' }}"
                                             wire:click='toggleVisible({{ $value->id }})'></x-custom.dropdown.link>
@@ -60,6 +61,7 @@
                                             }
                                         }"></x-custom.dropdown.link>
                                     </x-custom.dropdown.button>
+                                    @endif
                                 </td>
                             </tr>
                         @empty
