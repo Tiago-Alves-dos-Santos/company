@@ -6,6 +6,7 @@
                 <table class="min-w-full text-sm font-light text-left">
                     <thead class="font-medium border-b dark:border-neutral-500">
                         <tr>
+                            <th scope="col" class="px-6 py-4">#</th>
                             <th scope="col" class="px-6 py-4">Nome</th>
                             <th scope="col" class="px-6 py-4">Trabalho</th>
                             <th scope="col" class="px-6 py-4">Avaliação</th>
@@ -16,6 +17,9 @@
                     <tbody>
                         @forelse ($feedbacks as $value)
                             <tr class="border-b dark:border-neutral-500">
+                                <td class="px-6 py-4 font-medium whitespace-nowrap">
+                                    <img src="{{ $value->client->profile_photo_link }}" class="w-[50px] rounded-full" alt="">
+                                </td>
                                 <td class="px-6 py-4 font-medium whitespace-nowrap">{{ $value->client->name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $value->client->work }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $value->rating }}/5</td>

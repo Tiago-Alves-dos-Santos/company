@@ -44,7 +44,7 @@ final class Feedback extends WebSiteSections
     {
         return $this->tag->create([
             'title' => $this->tag_name ,
-            'surname' => 'Controle de todos os conteudos'
+            'surname' => 'Área de depoimentos de cliente'
         ]);
     }
 }
