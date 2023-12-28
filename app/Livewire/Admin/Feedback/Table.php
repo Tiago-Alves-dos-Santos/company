@@ -8,10 +8,11 @@ use WireUi\Traits\Actions;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use App\Facade\ServiceFactory;
+use Livewire\WithPagination;
 
 class Table extends Component
 {
-    use Actions;
+    use Actions, WithPagination;
     #[Url]
     public string $search = 'inactive';
     public function delete(int $id)
