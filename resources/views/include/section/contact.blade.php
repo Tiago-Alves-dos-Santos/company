@@ -56,7 +56,7 @@
                 @csrf
                 <div class="row gy-4">
 
-                    @if (AuthClient::check() && !empty(AuthClient::user()->name) && empty(old('name'))))
+                    @if (AuthClient::check() && !empty(AuthClient::user()->name) && empty(old('name')))
                     <div class="col-md-12">
                         <input type="text" name="name" class="form-control" placeholder="Seu nome" value="{{ AuthClient::user()->name }}">
                     </div>
@@ -66,7 +66,7 @@
                     </div>
                     @endif
 
-                    @if (AuthClient::check() && !empty(AuthClient::user()->email) && empty(old('email'))))
+                    @if (AuthClient::check() && !empty(AuthClient::user()->email) && empty(old('email')))
                     <div class="col-md-6 ">
                         <input type="email" class="form-control" name="email" placeholder="Seu Email" required value="{{ AuthClient::user()->email }}">
                     </div>
