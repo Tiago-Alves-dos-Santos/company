@@ -53,18 +53,18 @@
                                                 wire:click='toggleVisible({{ $value->id }})'></x-custom.dropdown.link>
                                             <x-custom.dropdown.link title="Excluir"
                                                 x-on:confirm="{
-                                            title: 'Deseja continuar com a ação?',
-                                            description: 'A ação não poderá ser desfeita.',
-                                            icon: 'question',
-                                            accept: {
-                                                label: 'Confirmar',
-                                                method: 'delete',
-                                                params: '{{ $value->id }}',
-                                            },
-                                            reject: {
-                                                label: 'Cancelar',
-                                            }
-                                        }"></x-custom.dropdown.link>
+                                                title: 'Deseja continuar com a ação?',
+                                                description: 'A ação não poderá ser desfeita.',
+                                                icon: 'question',
+                                                accept: {
+                                                    label: 'Confirmar',
+                                                    method: 'delete',
+                                                    params: '{{ $value->id }}',
+                                                },
+                                                reject: {
+                                                    label: 'Cancelar',
+                                                }
+                                            }"></x-custom.dropdown.link>
                                         @endif
                                     </x-custom.dropdown.button>
 
