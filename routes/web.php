@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CustomerCompanyController;
 use App\Http\Controllers\DashboardController;
@@ -64,11 +65,14 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::prefix('/depoiment')->group(function () {
         Route::get('/', [ClientController::class, 'viewFeedbacks'])->name('feedback.viewFeedbacks');
     });
+    Route::prefix('/contact')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('contact.index');
+    });
 });
 
 Route::prefix('/client')->group(function () {
     Route::post('/login', [ClientController::class, 'login'])->name('client.login');
     Route::get('/auth/facebook/callback', [ClientController::class, 'getToken'])->name('client.getToken');
     Route::post('/depoiment', [ClientController::class, 'depoiment'])->name('client.depoiment');
-    Route::post('/sendContact', [ClientController::class, 'sendContact'])->name('client.sendContact');
+    Route::post('/sendContact', [ContactController::class, 'sendContact'])->name('client.sendContact');
 });

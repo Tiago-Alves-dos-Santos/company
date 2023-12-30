@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,8 +23,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->blade();
+        $this->globalVar();
     }
-
+    private function globalVar()
+    {
+        view()->share('contact_unreads', (
+            Contact::where('isRead', false)->count() ?? 0
+        ));
+    }
     private function blade()
     {
         Blade::directive('checkAccess', function ($expression) {
@@ -33,6 +41,5 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('endcheckAccess', function () {
             return '<?php endif; ?>';
         });
-
     }
 }
