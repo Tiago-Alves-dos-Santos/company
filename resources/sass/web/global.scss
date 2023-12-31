@@ -28,10 +28,11 @@ h5,
 h6 {
     font-family: "Nunito", sans-serif;
 }
+
 /*--------------------------------------------------------------
   # Breadcrumbs
   --------------------------------------------------------------*/
-  .breadcrumbs {
+.breadcrumbs {
     padding: 15px 0;
     background: #012970;
     min-height: 40px;
@@ -119,4 +120,26 @@ h6 {
     [data-aos-delay] {
         transition-delay: 0 !important;
     }
+}
+
+
+/* =================MODAL==================*/
+
+.modal-backdrop {
+    --bs-backdrop-zindex: 100;
+}
+
+/* Estilo personalizado para o botão */
+.btn-facebook {
+    background-color: #3b5998;
+    color: #fff;
+    border: none;
+}
+
+.btn-facebook:hover {
+    background-color: #2d4373;
+    color: #fff;
+}
+.selected-star {
+    opacity: 1 !important;
 }

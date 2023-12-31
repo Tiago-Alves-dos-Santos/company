@@ -5,6 +5,7 @@ use App\Services\Tag;
 use App\Services\Company;
 use App\Services\Project;
 use App\Services\Service;
+use App\Services\Feedback;
 use App\Services\ProjectImage;
 use App\Services\CustomerCompany;
 
@@ -45,5 +46,9 @@ final class ServiceFactory
     public function createAdmin()
     {
         return new Admin();
+    }
+    public function createFeedback()
+    {
+        return new Feedback();
     }
 }

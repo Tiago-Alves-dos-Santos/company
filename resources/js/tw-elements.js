@@ -13,4 +13,3 @@ initTE({
     Dropdown, Ripple, Sidenav, Input,
     Modal, Tab,Lightbox
  });
-

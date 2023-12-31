@@ -61,9 +61,42 @@
             </li> --}}
 
             <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
-            <li><a class="getstarted scrollto" href="#about">Login</a></li>
+            @if (!AuthClient::check())
+            <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal"
+                data-bs-target="#loginClient">Login</a></li>
+            @else
+            <li><a class="getstarted scrollto bg-danger" href="#" data-bs-toggle="modal"
+                data-bs-target="#loginClient">Encerrar</a></li>
+            @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
 
+</div>
+
+{{-- Modals --}}
+<div class="modal fade" id="loginClient" tabindex="-1" aria-labelledby="loginClientLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="loginClientLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('client.login') }}" method="POST" class="d-flex justify-content-center">
+                    @csrf
+                    @if (AuthClient::check())
+                    <button type="submit" name="action" value="logout" class="btn btn-lg btn-block btn-danger">
+                        Encerrar sessão
+                    </button>
+                    @else
+                    <button type="submit" name="action" value="login" class="btn btn-lg btn-block btn-facebook">
+                        <i class="mr-2 ri-facebook-fill"></i> Login com Facebook
+                    </button>
+                    @endif
+                </form>
+            </div>
+
+        </div>
+    </div>
 </div>
