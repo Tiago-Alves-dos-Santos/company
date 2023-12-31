@@ -22,7 +22,7 @@ class Table extends Component
     public function render()
     {
         return view('livewire.admin.contact.table', [
-            'contacts' => Contact::where('isRead', $this->read)->paginate(1)
+            'contacts' => Contact::where('isRead', $this->read)->orderBy('id','desc')->paginate($this->read ? 3:1)
         ]);
     }
 }

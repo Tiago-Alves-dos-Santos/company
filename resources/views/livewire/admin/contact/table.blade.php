@@ -6,7 +6,7 @@
     </div>
     <div class="">
         @forelse ($contacts as $value)
-            <div class="w-full px-3 py-2 bg-gray-200 border border-gray-400 rounded-sm shadow-sm">
+            <div class="w-full px-3 py-2 mt-2 bg-gray-200 border border-gray-400 rounded-sm shadow-sm">
                 {{ $value->name }}
                 <div class="p-3 mx-3 my-2 bg-white rounded-sm shadow-md">
                     <ul>
@@ -34,8 +34,10 @@
                         </li>
                     </ul>
                     <span class="font-bold">Mensagem:</span>
-                    <div class="p-2 bg-gray-100 border-black rounded-md">
-                        {{ $value->content }}
+                    <div class="p-2 bg-gray-100 border-black rounded-md ">
+                        <p class="font-workSans">
+                            {{ $value->content }}
+                        </p>
                     </div>
                     @if (!(strtotime($value->updated_at) > strtotime($value->created_at)))
                         <div class="flex justify-end mt-3">
