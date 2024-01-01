@@ -50,9 +50,7 @@
 
 <!-- ======= Testimonials Section ======= -->
 <section id="testimonials" class="testimonials">
-    @if ($tags_value['TAG_FEEDBACK']->visible  ?? false)
     @include('include.section.testimonials')
-    @endif
 </section><!-- End Testimonials Section -->
 
 <!-- ======= Team Section ======= -->
