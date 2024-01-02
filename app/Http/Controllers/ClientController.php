@@ -14,7 +14,9 @@ class ClientController extends Controller
     {
         switch ($request->action) {
             case 'login':
-                return Socialite::driver('facebook')->redirect();
+                return Socialite::driver('facebook')
+                ->scopes(['public_profile', 'email'])
+                ->redirect();
                 break;
             case 'logout':
                 $this->logout();
@@ -28,7 +30,9 @@ class ClientController extends Controller
     }
     public function getToken(Request $request)
     {
-        $user = Socialite::driver('facebook')->user();
+        $user = Socialite::driver('facebook')
+        ->fields(['name', 'email', 'picture.type(large)'])
+        ->user();
         $client = null;
         if (!Client::where('facebook_id', $user->id)->exists()) {
             $client = Client::create([
@@ -36,7 +40,7 @@ class ClientController extends Controller
                 'email' => $user->email,
                 'facebook_id' => $user->id,
                 'profile_link' => $user->profileUrl,
-                'profile_photo_link' => $user->avatar,
+                'profile_photo_link' => $user->user['picture']['data']['url'],
                 'profile_photo_default' => $user->avatar
             ]);
             $client = $client->fresh();
