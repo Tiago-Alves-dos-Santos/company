@@ -20,6 +20,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/site.js'])
     {{-- CDN --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    {{-- FACEBOOK --}}
+    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
     {{-- TOAST --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
         integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ=="
