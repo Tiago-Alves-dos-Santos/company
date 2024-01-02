@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,24 @@
     <link href="{{ asset('img/logo-ico.png') }}" rel="icon">
     @vite(['resources/sass/app.scss'])
 </head>
+
 <body class="layout-center">
     <div class="center">
         @yield('content')
     </div>
 
-@stack('script')
+    <script>
+       /* ----------------LOGIN LOAD----------------*/
+       document.querySelectorAll('.load').forEach(element => {
+            element.style.display = 'none';
+        });
+        showLoad = (form) => {
+            form.querySelector('.load').style.display = 'inline-block';
+            form.querySelector('.btn').setAttribute('disabled', true);
+        }
+        /* ----------------END-LOGIN LOAD----------------*/
+    </script>
+    @stack('script')
 </body>
+
 </html>

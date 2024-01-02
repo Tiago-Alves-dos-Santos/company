@@ -51,7 +51,7 @@
                     </label>
                 </div>
 
-                <a href="#" class="link-danger">Esqueceu a senha?</a>
+                <a href="{{ route('password.request') }}" class="link-danger">Esqueceu a senha?</a>
             </div>
                @endif
                 <div class="row">
