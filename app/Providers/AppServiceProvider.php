@@ -26,9 +26,14 @@ class AppServiceProvider extends ServiceProvider
     }
     private function globalVar()
     {
-        view()->share('contact_unreads', (
-            Contact::where('isRead', false)->count() ?? 0
-        ));
+        try{
+            view()->share('contact_unreads', (
+                Contact::where('isRead', false)->count() ?? 0
+            ));
+        }catch(\Exception $e){
+            view()->share('contact_unreads', 0);
+        }
+
     }
     private function blade()
     {

@@ -5,7 +5,7 @@
         <div class="form">
             {{-- Be like water. --}}
             <div class="img" x-show="show">
-                <img src="{{ asset('img/quadro_logo.png') }}" alt="">
+                <img src="{{ asset('img/company/solucoes_software.png') }}" alt="">
             </div>
             <div class="title">
                 <h3>Administrador</h3>

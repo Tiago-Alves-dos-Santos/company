@@ -10,6 +10,7 @@
     <link href="{{ asset('img/logo-ico.png') }}" rel="icon">
     @vite(['resources/sass/admin.scss', 'resources/js/app.js'])
     @wireUiScripts
+    @livewireChartsScripts
     @include('include.cdn')
 </head>
 

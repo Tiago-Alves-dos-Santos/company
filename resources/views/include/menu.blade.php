@@ -3,7 +3,8 @@
     <a href="index.html" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
         {{-- SSoftware - nome curto --}}
-        <span>Soluções Software</span>
+        <span class="d-lg-block d-xl-none">Soluções Software</span>
+        <span class="d-xl-block d-lg-none">SSoftware</span>
     </a>
 
     <nav id="navbar" class="navbar">
@@ -13,6 +14,7 @@
             <li><a class="nav-link scrollto" href="#features">Recursos</a></li>
             <li><a class="nav-link scrollto" href="#services">Serviços</a></li>
             <li><a class="nav-link scrollto" href="#portfolio">Projetos</a></li>
+            <li><a class="nav-link scrollto" href="#testimonials">Depoimentos</a></li>
             <li><a class="nav-link scrollto" href="#team">Equipe</a></li>
             {{-- <li><a href="blog.html">Blog</a></li> --}}
             {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
