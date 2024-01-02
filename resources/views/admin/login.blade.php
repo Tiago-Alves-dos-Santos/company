@@ -41,34 +41,39 @@
                         </div>
                     </div>
                 </div>
-               @if ($conected)
-               <div class="login-options">
-                <div class="form-check">
-                    <input class="form-check-input pointer" name="remember" type="checkbox" value=""
-                        id="flexCheckDefault">
-                    <label class="form-check-label pointer" for="flexCheckDefault">
-                        Lembrar de mim
-                    </label>
-                </div>
+                @if ($conected)
+                    <div class="login-options">
+                        <div class="form-check">
+                            <input class="form-check-input pointer" name="remember" type="checkbox" value=""
+                                id="flexCheckDefault">
+                            <label class="form-check-label pointer" for="flexCheckDefault">
+                                Lembrar de mim
+                            </label>
+                        </div>
 
-                <a href="{{ route('password.request') }}" class="link-danger">Esqueceu a senha?</a>
-            </div>
-               @endif
+                        <a href="{{ route('password.request') }}" class="link-danger">Esqueceu a senha?</a>
+                    </div>
+                @endif
                 <div class="row">
                     @if ($conected)
-                    <div class="col-sm-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary" id="btn-login">
-                            Entrar
-                            <div class="spinner-border spinner-border-sm" role="status" id="load">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                        </button>
-                    </div>
+                        <div class="col-sm-12 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary" id="btn-login">
+                                Entrar
+                                <div class="spinner-border spinner-border-sm" role="status" id="load">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </button>
+                        </div>
                     @else
                         <h2 class="text-center text-danger">Sem conexão com banco.</h2>
                     @endif
                 </div>
             </form>
+            @if (session('status'))
+                <div class="text-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             @push('script')
                 <script>
                     function showPassword() {
@@ -87,7 +92,6 @@
                         document.getElementById('load').style.display = 'inline-block';
                         document.getElementById('btn-login').setAttribute('disabled', true);
                     });
-
                 </script>
             @endpush
         </div>

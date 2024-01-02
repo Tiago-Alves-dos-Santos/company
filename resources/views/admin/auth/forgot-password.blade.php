@@ -20,7 +20,7 @@
                         @enderror
                     </div>
                     @if (session('status'))
-                        <div class="mb-4 text-sm font-medium text-green-600">
+                        <div class="text-success">
                             {{ session('status') }}
                         </div>
                     @endif

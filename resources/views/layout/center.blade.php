@@ -17,8 +17,8 @@
     </div>
 
     <script>
-       /* ----------------LOGIN LOAD----------------*/
-       document.querySelectorAll('.load').forEach(element => {
+        /* ----------------LOGIN LOAD----------------*/
+        document.querySelectorAll('.load').forEach(element => {
             element.style.display = 'none';
         });
         showLoad = (form) => {
@@ -26,6 +26,17 @@
             form.querySelector('.btn').setAttribute('disabled', true);
         }
         /* ----------------END-LOGIN LOAD----------------*/
+        function showPassword() {
+            var x = document.getElementById("password");
+            var span = document.getElementById("show-password");
+            if (x.type === "password") {
+                x.type = "text";
+                span.innerHTML = '<i class="bi bi-eye-fill"></i>';
+            } else {
+                x.type = "password";
+                span.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
+            }
+        }
     </script>
     @stack('script')
 </body>
