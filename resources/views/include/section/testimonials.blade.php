@@ -100,7 +100,7 @@
             @endif
         </div>
     </header>
-
+    @if ($tags_value['TAG_FEEDBACK']->visible  ?? false)
     <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
         <div class="swiper-wrapper">
 
@@ -150,7 +150,7 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
-
+    @endif
 </div>
 @push('script')
     @if ($errors->hasBag('depoiment'))
