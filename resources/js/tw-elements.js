@@ -6,10 +6,11 @@ import {
     Tab,
     Modal,
     Lightbox,
+    Chart,
     initTE
 } from "tw-elements";
 
 initTE({
     Dropdown, Ripple, Sidenav, Input,
-    Modal, Tab,Lightbox
+    Modal, Tab,Lightbox,Chart
  });
