@@ -1,7 +1,7 @@
 on:
 push:
   branches:
-  -master
+  - master
 name: 🚀 Enviando release para master
 jobs:
   web-deploy:
