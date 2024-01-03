@@ -128,16 +128,24 @@ h6 {
 .modal-backdrop {
     --bs-backdrop-zindex: 100;
 }
-
+.pointer{
+    cursor: pointer;
+}
 /* Estilo personalizado para o botão */
-.btn-facebook {
-    background-color: #3b5998;
+.btn-google {
+    background-color: #4285F4;
     color: #fff;
     border: none;
+    padding: 2px 3px 2px 1px;
+    display: inline-block;
+    img{
+        border-radius: 0.5rem;
+        background-color: white;
+    }
 }
 
-.btn-facebook:hover {
-    background-color: #2d4373;
+.btn-google:hover {
+    background-color: rgb(37, 55, 93);
     color: #fff;
 }
 .selected-star {

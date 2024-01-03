@@ -2,7 +2,6 @@
 
     <a href="index.html" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
-        {{-- SSoftware - nome curto --}}
         <span class="d-lg-block d-xl-none">Soluções Software</span>
         <span class="d-xl-block d-lg-none">SSoftware</span>
     </a>
@@ -64,11 +63,11 @@
 
             <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
             @if (!AuthClient::check())
-            <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal"
-                data-bs-target="#loginClient">Login</a></li>
+                <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal"
+                        data-bs-target="#loginClient">Entrar</a></li>
             @else
-            <li><a class="getstarted scrollto bg-danger" href="#" data-bs-toggle="modal"
-                data-bs-target="#loginClient">Encerrar</a></li>
+                <li><a class="getstarted scrollto bg-danger" href="#" data-bs-toggle="modal"
+                        data-bs-target="#loginClient">Encerrar</a></li>
             @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -81,20 +80,34 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="loginClientLabel">Login</h1>
+                <h1 class="modal-title fs-5" id="loginClientLabel">Entrar</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('client.login') }}" method="POST" class="d-flex justify-content-center">
+                <h6>Entre com seu gmail e nos dê sua opnião na seção de depoimentos. Antes disso aceite os termos.</h6>
+                <form action="{{ route('client.login') }}" method="POST" class="d-flex flex-column">
                     @csrf
                     @if (AuthClient::check())
-                    <button type="submit" name="action" value="logout" class="btn btn-lg btn-block btn-danger">
-                        Encerrar sessão
-                    </button>
+                        <button type="submit" name="action" value="logout" class="btn btn-lg btn-block btn-danger">
+                            Encerrar sessão
+                        </button>
                     @else
-                    <button type="submit" name="action" value="login" class="btn btn-lg btn-block btn-facebook">
-                        <i class="mr-2 ri-facebook-fill"></i> Login com Facebook
-                    </button>
+                        <div class="justify-content-center d-flex w-100">
+                            <button type="submit" name="action" value="login" id="btn_login"
+                                class="btn btn-lg btn-google" title="Aceite os termos" disabled>
+                                <img src="{{ asset('img/google-48.png') }}" alt="">
+                                Login com Google
+                            </button>
+                        </div>
+                        <div class="mt-3 form-check">
+                            <input class="form-check-input pointer" type="checkbox" id="check_term"
+                                onchange="check_terms(this)">
+                            <label class="form-check-label pointer" for="check_term">
+                                Eu aceito os termos e condições da
+                                <a href="{{ asset('pdf/termo.pdf') }}" target="_blank">Política de Privacidade</a>
+                                da {{ config('app.name') }}
+                            </label>
+                        </div>
                     @endif
                 </form>
             </div>
@@ -102,3 +115,50 @@
         </div>
     </div>
 </div>
+
+@push('script')
+    <script>
+        function check_terms(input) {
+            let button = document.getElementById('btn_login');
+            if (input.checked == true) {
+                button.removeAttribute('disabled');
+            } else {
+                button.setAttribute('disabled', true);
+            }
+        }
+        let modal_loginClient = {
+            isOpen: false,
+            modal: new bootstrap.Modal('#loginClient', {
+                keyboard:false,
+                backdrop:'static',
+            }),
+            listenModal: null,
+            interval_minutes: 7,
+        };
+
+        modal_loginClient.listenModal = () => {
+            document.getElementById('loginClient').addEventListener('shown.bs.modal', event => {
+                modal_loginClient.isOpen = true;
+            });
+            document.getElementById('loginClient').addEventListener('hide.bs.modal', event => {
+                modal_loginClient.isOpen = false;
+            });
+        }
+        modal_loginClient.listenModal();
+
+        function showLogin() {
+
+            setInterval(() => {
+                if (!modal_loginClient.isOpen) {
+                    const loginModal = new bootstrap.Modal('#loginClient');
+                    loginModal.show();
+                }
+            }, 1000 * 60 * modal_loginClient.interval_minutes);
+
+        }
+        @if (!AuthClient::check())
+            showLogin();
+            modal_loginClient.modal.show();
+        @endif
+    </script>
+@endpush

@@ -18,7 +18,7 @@ class Table extends Component
     public function delete(int $id)
     {
         $feedback = ServiceFactory::createFeedback();
-        $feedback->delete($id);
+        $feedback->forceDelete($id);
         $this->notification()->success('Sucesso', 'Deletado com sucesso');
     }
 
@@ -44,9 +44,6 @@ class Table extends Component
             case 'inactive':
                 $name = 'Inativos';
                 break;
-            case 'excluded':
-                $name = 'Deletados';
-                break;
 
             default:
                 # code...
@@ -64,10 +61,6 @@ class Table extends Component
                 break;
             case 'inactive':
                 $feedback->where('visible', false);
-                break;
-            case 'excluded':
-                $feedback->onlyTrashed();
-                break;
 
             default:
                 # code...

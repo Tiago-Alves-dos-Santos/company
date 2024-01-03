@@ -18,10 +18,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('work')->nullable();
-            $table->string('facebook_id')->nullable();
-            $table->string('profile_link')->nullable();
+            $table->boolean('terms_accepted')->default(false);
+            $table->string('google_id')->nullable();
             $table->string('profile_photo_link')->nullable();
-            $table->string('profile_photo_default')->nullable();
+            $table->text('token')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

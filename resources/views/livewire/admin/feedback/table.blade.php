@@ -17,7 +17,7 @@
                     <tbody>
                         @forelse ($feedbacks as $value)
                             <tr class="border-b dark:border-neutral-500">
-                                <td class="px-6 py-4 font-medium whitespace-nowrap">
+                                <td>
                                     <img src="{{ $value->client->profile_photo_link }}" class="w-[50px] rounded-full"
                                         alt="">
                                 </td>

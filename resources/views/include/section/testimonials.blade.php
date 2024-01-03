@@ -31,11 +31,11 @@
                                 Ex: Vendedor, Dono - Amigos&Cia
                             </span>
                             @if (AuthClient::check() && !empty(AuthClient::user()->work) && empty(old('work')))
-                            <input type="text" name="work" id="" class="form-control" placeholder=""
-                                value="{{ AuthClient::user()->work }}">
+                                <input type="text" name="work" id="" class="form-control" placeholder=""
+                                    value="{{ AuthClient::user()->work }}">
                             @else
-                            <input type="text" name="work" id="" class="form-control" placeholder=""
-                                value="{{ old('work') ?? '' }}">
+                                <input type="text" name="work" id="" class="form-control" placeholder=""
+                                    value="{{ old('work') ?? '' }}">
                             @endif
 
                         </div>
@@ -100,33 +100,33 @@
             @endif
         </div>
     </header>
-    @if ($tags_value['TAG_FEEDBACK']->visible  ?? false)
-    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
-        <div class="swiper-wrapper">
+    @if ($tags_value['TAG_FEEDBACK']->visible ?? false)
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+            <div class="swiper-wrapper">
 
-            @forelse ($feedbacks as $value)
-            <div class="swiper-slide">
-                <div class="testimonial-item">
-                    <div class="stars">
-                        @for ($i = 0; $i < $value->rating; $i++)
-                        <i class="bi bi-star-fill"></i>
-                        @endfor
+                @forelse ($feedbacks as $value)
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <div class="stars">
+                                @for ($i = 0; $i < $value->rating; $i++)
+                                    <i class="bi bi-star-fill"></i>
+                                @endfor
+                            </div>
+                            <p>
+                                {{ $value->feedback }}
+                            </p>
+                            <div class="mt-auto profile">
+                                <img src="{{ $value->client->profile_photo_link }}" class="testimonial-img"
+                                    alt="">
+                                <h3>{{ $value->client->name }}</h3>
+                                <h4>{{ $value->client->work }}</h4>
+                                {{-- <h4>Ceo &amp; Founder</h4> --}}
+                            </div>
+                        </div>
                     </div>
-                    <p>
-                        {{ $value->feedback }}
-                    </p>
-                    <div class="mt-auto profile">
-                        <img src="{{ $value->client->profile_photo_link }}" class="testimonial-img" alt="">
-                        <h3>{{ $value->client->name }}</h3>
-                        <h4>{{ $value->client->work }}</h4>
-                        {{-- <h4>Ceo &amp; Founder</h4> --}}
-                    </div>
-                </div>
-            </div>
-            @empty
-
-            @endforelse
-            {{-- <div class="swiper-slide">
+                @empty
+                @endforelse
+                {{-- <div class="swiper-slide">
                 <div class="testimonial-item">
                     <div class="stars">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
@@ -147,19 +147,17 @@
 
 
 
+            </div>
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-pagination"></div>
-    </div>
     @endif
 </div>
 @push('script')
-    @if ($errors->hasBag('depoiment'))
-        <script type="module">
-            const feedbacktModal = new window.bootstrap.Modal('#feedback-client');
-            feedbacktModal.show();
-        </script>
-    @endif
     <script>
+        @if ($errors->hasBag('depoiment'))
+        const feedbacktModal = new bootstrap.Modal('#feedback-client');
+        feedbacktModal.show();
+        @endif
         /* ----------------STARSTORE----------------*/
         const stars = document.querySelectorAll('.star');
 
