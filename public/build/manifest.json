@@ -1,0 +1,82 @@
+{
+  "_axios-28bc18a3.js": {
+    "file": "assets/axios-28bc18a3.js"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-d0346eea.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-5b2dd4d4.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  },
+  "node_modules/remixicon/fonts/remixicon.eot": {
+    "file": "assets/remixicon-25af6e92.eot",
+    "src": "node_modules/remixicon/fonts/remixicon.eot"
+  },
+  "node_modules/remixicon/fonts/remixicon.svg": {
+    "file": "assets/remixicon-c728a748.svg",
+    "src": "node_modules/remixicon/fonts/remixicon.svg"
+  },
+  "node_modules/remixicon/fonts/remixicon.ttf": {
+    "file": "assets/remixicon-4022c89b.ttf",
+    "src": "node_modules/remixicon/fonts/remixicon.ttf"
+  },
+  "node_modules/remixicon/fonts/remixicon.woff": {
+    "file": "assets/remixicon-52976819.woff",
+    "src": "node_modules/remixicon/fonts/remixicon.woff"
+  },
+  "node_modules/remixicon/fonts/remixicon.woff2": {
+    "file": "assets/remixicon-b0d0b7e5.woff2",
+    "src": "node_modules/remixicon/fonts/remixicon.woff2"
+  },
+  "public/img/bg-01.jpg": {
+    "file": "assets/bg-01-51e472b6.jpg",
+    "src": "public/img/bg-01.jpg"
+  },
+  "public/img/footer-bg.png": {
+    "file": "assets/footer-bg-4bd39788.png",
+    "src": "public/img/footer-bg.png"
+  },
+  "public/img/hero-bg.png": {
+    "file": "assets/hero-bg-eb833995.png",
+    "src": "public/img/hero-bg.png"
+  },
+  "public/img/team-shape.svg": {
+    "file": "assets/team-shape-9eec37bd.svg",
+    "src": "public/img/team-shape.svg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-277df73d.js",
+    "imports": [
+      "_axios-28bc18a3.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/site.css": {
+    "file": "assets/site-61b3cfb1.css",
+    "src": "resources/js/site.css"
+  },
+  "resources/js/site.js": {
+    "css": [
+      "assets/site-61b3cfb1.css"
+    ],
+    "file": "assets/site-266b729a.js",
+    "imports": [
+      "_axios-28bc18a3.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/site.js"
+  },
+  "resources/sass/admin.scss": {
+    "file": "assets/admin-8ef3f441.css",
+    "isEntry": true,
+    "src": "resources/sass/admin.scss"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-66fda7c8.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
