@@ -8,7 +8,6 @@
                     <x-custom.dropdown.button title="Filtro" context='info' icon='ri-filter-line'>
                         <x-custom.dropdown.link title="Ativos" @click="$dispatch('livewire.admin.feedback.setSearch', {search: 'active'})"></x-custom.dropdown.link>
                         <x-custom.dropdown.link title="Inativos" @click="$dispatch('livewire.admin.feedback.setSearch', {search: 'inactive'})"></></x-custom.dropdown.link>
-                        <x-custom.dropdown.link title="Deletados" @click="$dispatch('livewire.admin.feedback.setSearch', {search: 'excluded'})"></x-custom.dropdown.link>
                     </x-custom.dropdown.button>
                 </div>
                 <div>
