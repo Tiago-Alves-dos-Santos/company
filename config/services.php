@@ -34,8 +34,8 @@ return [
     'google' => [
         'client_id' => '91280664480-i2oe2u64d8329e0fjtmgm4uqae80h472.apps.googleusercontent.com',
         'client_secret' =>  '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',
-        // 'redirect' => 'http://localhost:8000/client/auth/facebook/callback'
-        'redirect' => 'https://solucoessoftware.com/client/auth/facebook/callback'
+        'redirect' => 'http://localhost:8000/client/auth/facebook/callback'
+        // 'redirect' => 'https://solucoessoftware.com/client/auth/facebook/callback'
     ]
 
 ];
