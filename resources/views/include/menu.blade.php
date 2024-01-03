@@ -1,6 +1,6 @@
 <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <a href="index.html" class="logo d-flex align-items-center">
+    <a href="" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
         <span class="d-lg-block d-xl-none">Soluções Software</span>
         <span class="d-xl-block d-lg-none">SSoftware</span>
@@ -84,7 +84,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                @if (!AuthClient::check())
                 <h6>Entre com seu gmail e nos dê sua opnião na seção de depoimentos. Antes disso aceite os termos.</h6>
+                @else
+                {{-- <h6>Entre com seu gmail e nos dê sua opnião na seção de depoimentos. Antes disso aceite os termos.</h6> --}}
+                @endif
                 <form action="{{ route('client.login') }}" method="POST" class="d-flex flex-column">
                     @csrf
                     @if (AuthClient::check())

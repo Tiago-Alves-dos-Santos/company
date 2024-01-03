@@ -18,7 +18,7 @@ class Table extends Component
     public function delete(int $id)
     {
         $feedback = ServiceFactory::createFeedback();
-        $feedback->forceDelete($id);
+        $feedback->delete($id);
         $this->notification()->success('Sucesso', 'Deletado com sucesso');
     }
 
@@ -44,6 +44,9 @@ class Table extends Component
             case 'inactive':
                 $name = 'Inativos';
                 break;
+            case 'excluded':
+                $name = 'Deletados';
+                break;
 
             default:
                 # code...
@@ -60,7 +63,11 @@ class Table extends Component
                 $feedback->where('visible', true);
                 break;
             case 'inactive':
-                $feedback->where('visible', false);
+                $feedback->where('visible', 0);
+                break;
+            case 'excluded':
+                $feedback->onlyTrashed();
+                break;
 
             default:
                 # code...
@@ -70,7 +77,6 @@ class Table extends Component
     }
     public function render()
     {
-
         return view('livewire.admin.feedback.table', [
             'feedbacks' => $this->filter()
         ]);
