@@ -14,9 +14,7 @@ class ClientController extends Controller
     {
         switch ($request->action) {
             case 'login':
-                return Socialite::driver('facebook')
-                ->scopes(['public_profile', 'email'])
-                ->redirect();
+                return Socialite::driver('google')->redirect();
                 break;
             case 'logout':
                 $this->logout();
@@ -30,22 +28,26 @@ class ClientController extends Controller
     }
     public function getToken(Request $request)
     {
-        $user = Socialite::driver('facebook')
-        ->fields(['name', 'email', 'picture.type(large)'])
-        ->user();
+        $user = Socialite::driver('google')->user();
         $client = null;
-        if (!Client::where('facebook_id', $user->id)->exists()) {
+        if (!Client::where('google_id', $user->id)->exists()) {
             $client = Client::create([
                 'name' => $user->name,
                 'email' => $user->email,
-                'facebook_id' => $user->id,
-                'profile_link' => $user->profileUrl,
-                'profile_photo_link' => $user->user['picture']['data']['url'],
-                'profile_photo_default' => $user->avatar
+                'google_id' => $user->id,
+                'profile_photo_link' => $user->avatar,
+                'token' => $user->token,
             ]);
             $client = $client->fresh();
         } else {
-            $client = Client::where('facebook_id', $user->id)->first();
+            Client::where('google_id', $user->id)->update([
+                'name' => $user->name,
+                'email' => $user->email,
+                'google_id' => $user->id,
+                'profile_photo_link' => $user->avatar,
+                'token' => $user->token,
+            ]);
+            $client = Client::where('google_id', $user->id)->first();
         }
         AuthClient::login($client);
         return redirect()->route('website');

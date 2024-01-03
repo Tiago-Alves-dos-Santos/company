@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex justify-center w-full" x-data='feedback' x-on:view_admin_feedback.window="setTitleFilter($event)">
         <div class="w-full sm:w-[800px]">
-            <x-card.header title="Depoimentos">
+            <x-card.header title="Depoimentos" slot_class='px-11 py-3'>
                 <div class="flex justify-end">
                     <x-custom.dropdown.button title="Filtro" context='info' icon='ri-filter-line'>
                         <x-custom.dropdown.link title="Ativos" @click="$dispatch('livewire.admin.feedback.setSearch', {search: 'active'})"></x-custom.dropdown.link>

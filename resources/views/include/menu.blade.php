@@ -66,7 +66,6 @@
             @if (!AuthClient::check())
                 <li><a class="getstarted scrollto" href="#" data-bs-toggle="modal"
                 data-bs-target="#loginClient">Login</a></li>
-                {{-- <li><a class="getstarted scrollto" href="#" onclick="loginWithFacebook()">Login</a></li> --}}
             @else
                 <li><a class="getstarted scrollto bg-danger" href="#" data-bs-toggle="modal"
                         data-bs-target="#loginClient">Encerrar</a></li>
@@ -93,8 +92,9 @@
                             Encerrar sessão
                         </button>
                     @else
-                        <button type="submit" name="action" value="login" class="btn btn-lg btn-block btn-facebook">
-                            <i class="mr-2 ri-facebook-fill"></i> Login com Facebook
+                        <button type="submit" name="action" value="login" class="btn btn-lg btn-google">
+                            <img src="{{ asset('img/google-48.png') }}" alt="">
+                            Login com Google
                         </button>
                     @endif
                 </form>
@@ -103,52 +103,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    // Inicialize o SDK do Facebook
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '3712235789099536',
-            cookie: false,
-            xfbml: true,
-            version: 'v18.0' // Versão mais recente do Graph API
-        });
-    };
-
-    // Carregue o SDK do Facebook de forma assíncrona
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    // Função para realizar o login com Facebook
-    function loginWithFacebook() {
-        FB.login(function(response) {
-            if (response.authResponse) {
-                // Login bem-sucedido, obter informações do usuário
-                FB.api('/me', {
-                    fields: 'id,name,email,picture'
-                }, function(userData) {
-                    console.log(userData);
-                    // Aqui você pode usar os dados do usuário, como nome, email e foto do perfil
-                });
-            } else {
-                // O usuário cancelou o login ou algo deu errado
-                console.log('Login cancelado ou ocorreu um erro.');
-            }
-        }, {
-            scope: 'email'
-        }); // Escopo de permissão para acessar o email do usuário
-    }
-
-    function checkStatus() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-            console.log(response);
-        });
-    }
-</script>

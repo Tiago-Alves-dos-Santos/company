@@ -16,7 +16,7 @@
         <x-card.number title="Clientes(empresa)" class="w-[300px]">
             {{ $count->clients_company }}
         </x-card.number>
-        <x-card.number title="Clientes(facebook)" class="w-[300px]">
+        <x-card.number title="Clientes(gmail)" class="w-[300px]">
             {{ $count->clients }}
         </x-card.number>
     </div>
