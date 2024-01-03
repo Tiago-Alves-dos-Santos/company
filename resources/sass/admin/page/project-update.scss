@@ -1,0 +1,8 @@
+.delete-image-project{
+    .icon-delete{
+        display: none;
+    }
+    &:hover .icon-delete{
+        display: inline-block;
+    }
+}

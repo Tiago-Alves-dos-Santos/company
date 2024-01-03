@@ -1,0 +1,19 @@
+/**
+* Template Name: FlexStart
+* Updated: Sep 18 2023 with Bootstrap v5.3.2
+* Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+@import "bootstrap/scss/bootstrap.scss";
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'remixicon/fonts/remixicon.css';
+
+@import 'web/global.scss';
+@import 'web/sections/section.scss';
+@import 'web/pages/blog.scss';
+@import 'web/pages/portfolio-details.scss';
+
+@import 'layouts/center.scss';
+@import 'pages/login.scss';
