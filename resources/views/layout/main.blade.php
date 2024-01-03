@@ -20,8 +20,14 @@
     @vite(['resources/sass/app.scss', 'resources/js/site.js'])
     {{-- CDN --}}
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    {{-- FACEBOOK --}}
-    <script src="https://connect.facebook.net/en_US/sdk.js"></script>
+    {{-- BOOTSTRAP --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+
     {{-- TOAST --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
         integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ=="
@@ -87,7 +93,6 @@
         /* ----------------JQUERY----------------*/
         $('.mask-cellphone').mask('(00) 0 0000-0000');
         /* ----------------END JQUERY----------------*/
-
     </script>
     @stack('script')
 </body>

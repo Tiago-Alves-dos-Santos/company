@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('work')->nullable();
+            $table->boolean('terms_accepted')->default(false);
             $table->string('google_id')->nullable();
             $table->string('profile_photo_link')->nullable();
             $table->text('token')->nullable();

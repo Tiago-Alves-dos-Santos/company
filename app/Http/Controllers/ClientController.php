@@ -37,6 +37,7 @@ class ClientController extends Controller
                 'google_id' => $user->id,
                 'profile_photo_link' => $user->avatar,
                 'token' => $user->token,
+                'terms_accepted' => true,
             ]);
             $client = $client->fresh();
         } else {
