@@ -38,7 +38,6 @@ final class Service extends WebSiteSections
      */
     public function update(int $id,array $data): int
     {
-        parent::create($data);
         $rowaffecteds = Services::where('id', $id)->update([
             'tag_id' => $this->model_tag->id,
             'title' => $data['title'],
