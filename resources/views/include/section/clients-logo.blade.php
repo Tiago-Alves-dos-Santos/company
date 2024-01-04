@@ -26,10 +26,9 @@
                     </div>
                     <div class="swiper-slide"><img src="/img/clients/client-8.png" class="img-fluid" alt="">
                     </div>
-                    <div class="swiper-pagination"></div>
                 @endforelse
             </div>
-            @if ($customer_company->count() > 3)
+            @if ($customer_company->count() > 3 || $customer_company->isEmpty())
             <div class="swiper-pagination"></div>
             @endif
         </div>
