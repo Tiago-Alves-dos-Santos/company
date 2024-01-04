@@ -74,7 +74,7 @@
                     Granja-CE<br>
                     Brasil <br><br>
                     <strong>Telefone:</strong> (88) 9 9775-6323<br>
-                    <strong>Email:</strong> tiagooliveiraaso2@gmail.com<br>
+                    <strong>Email:</strong> ssolucoessoftware@gmail.com<br>
                 </p>
 
             </div>
