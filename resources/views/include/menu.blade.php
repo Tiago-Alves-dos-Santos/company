@@ -2,8 +2,7 @@
 
     <a href="" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
-        <span class="d-lg-block d-xl-none">Soluções Software</span>
-        <span class="d-xl-block d-lg-none">SSoftware</span>
+        <span>SSoftware</span>
     </a>
 
     <nav id="navbar" class="navbar">
@@ -80,7 +79,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="loginClientLabel">Entrar</h1>
+                <h1 class="modal-title fs-5" id="loginClientLabel">@if (!AuthClient::check()) Entrar @else Encerrar @endif</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

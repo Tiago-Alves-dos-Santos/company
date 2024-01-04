@@ -3,6 +3,15 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="language" content="pt-BR">
+    <title>Soluções Software</title>
+    <meta name="description"
+        content="Oferecemos soluções modernas para o crescimento do seu negócio
+Somos uma equipe de designers, desenvolvedores talentosos que criam sites,sistemas e aplicativos para seu negócio">
+    <meta name="robots" content="nofollow">
+    <meta name="author" content="Tiago Alves dos Santos de Oliveira">
+    <meta name="keywords"
+        content="Soluções Software, PDV, ERP, Vendas, Sistemas, Aplicativo celular, Aplicativo mobile">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Soluções Software</title>
