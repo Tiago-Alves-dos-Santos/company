@@ -28,7 +28,7 @@
                     </div>
                 @endforelse
             </div>
-            @if ($customer_company->count() > 3)
+            @if ($customer_company->count() > 3 || $customer_company->isEmpty())
             <div class="swiper-pagination"></div>
             @endif
         </div>
