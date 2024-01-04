@@ -21,7 +21,7 @@ Readme template -> https://github.com/othneildrew/Best-README-Template
   <h3 align="center">Soluções Software</h3>
 
   <p align="center">
-    Site de indentidade visual da Soluções Software 
+    Site de indentidade visual da Soluções Software.
   </p>
 </div>
 
