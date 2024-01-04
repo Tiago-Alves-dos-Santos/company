@@ -2,8 +2,7 @@
 
     <a href="" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
-        <span class="d-lg-block d-xl-none">Soluções Software</span>
-        <span class="d-xl-block d-lg-none">SSoftware</span>
+        <span>SSoftware</span>
     </a>
 
     <nav id="navbar" class="navbar">
