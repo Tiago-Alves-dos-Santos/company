@@ -43,7 +43,7 @@
                     <div class="info-box">
                         <i class="bi bi-clock"></i>
                         <h3>Aberto às</h3>
-                        <p>Segunda - Sábado<br>8:00 - 18:00</p>
+                        <p>Segunda - Sábado<br>8:00 às 18:00</p>
                     </div>
                 </div>
             </div>
