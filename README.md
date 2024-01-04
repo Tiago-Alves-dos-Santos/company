@@ -15,7 +15,7 @@ Readme template -> https://github.com/othneildrew/Best-README-Template
 <br />
 <div align="center">
   <a href="https://github.com/Tiago-Alves-dos-Santos/company">
-    <img src="../public/img/company/solucoes_software.png" alt="Logo" width="80" height="80">
+    <img src="public/img/company/solucoes_software.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Soluções Software</h3>
