@@ -8,7 +8,7 @@
     <meta name="description"
         content="Oferecemos soluções modernas para o crescimento do seu negócio
 Somos uma equipe de designers, desenvolvedores talentosos que criam sites,sistemas e aplicativos para seu negócio">
-    <meta name="robots" content="nofollow">
+    <meta name="robots" content="index">
     <meta name="author" content="Tiago Alves dos Santos de Oliveira">
     <meta name="keywords"
         content="Soluções Software, PDV, ERP, Vendas, Sistemas, Aplicativo celular, Aplicativo mobile">
