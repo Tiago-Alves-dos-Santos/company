@@ -6,11 +6,11 @@
     <meta name="language" content="pt-BR">
     <title>Soluções Software</title>
     <meta name="description"
-        content="Soluções Software, desenvolvimento de sistemas mobile(celular), desktop e web(sites e sistemas). Trabalhamos com suporte ao cliente.">
+        content="Soluções Software soluções modernas, desenvolvimento de sistemas mobile(celular), desktop e web(sites e sistemas). Trabalhamos com suporte ao cliente.">
     <meta name="robots" content="index">
     <meta name="author" content="Tiago Alves dos Santos de Oliveira">
     <meta name="keywords"
-        content="Soluções Software, PDV, ERP, Vendas, Sistemas, Aplicativo celular, Aplicativo mobile">
+        content="Soluções Software,Soluções Software soluções modernas, soluções modernas,  PDV, ERP, Vendas, Sistemas, Aplicativo celular, Aplicativo mobile">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Soluções Software</title>
