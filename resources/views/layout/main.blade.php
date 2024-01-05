@@ -6,8 +6,7 @@
     <meta name="language" content="pt-BR">
     <title>Soluções Software</title>
     <meta name="description"
-        content="Oferecemos soluções modernas para o crescimento do seu negócio
-Somos uma equipe de designers, desenvolvedores talentosos que criam sites,sistemas e aplicativos para seu negócio">
+        content="Soluções Software, desenvolvimento de sistemas mobile(celular), desktop e web(sites e sistemas). Trabalhamos com suporte ao cliente.">
     <meta name="robots" content="index">
     <meta name="author" content="Tiago Alves dos Santos de Oliveira">
     <meta name="keywords"
