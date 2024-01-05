@@ -20,9 +20,9 @@
                 <div class="col-md-6">
                     <div class="info-box">
                         <i class="bi bi-telephone"></i>
-                        <h3>Telfone</h3>
+                        <h3>Celular</h3>
                         <p>
-                            (88) 9 9775-6323
+                            <a href="https://wa.link/7w0wug">(88) 9 9463-9840</a>
                             <br>
                             {{-- +1 6678 254445 41 --}}
                         </p>
