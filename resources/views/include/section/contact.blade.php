@@ -34,8 +34,7 @@
                         <h3>Nosso email</h3>
                         <p>
                             ssolucoessoftware@gmail.com
-                            <br>
-                            ssolucoessoftware@outlook.com
+                            {{-- <br> --}}
                         </p>
                     </div>
                 </div>
