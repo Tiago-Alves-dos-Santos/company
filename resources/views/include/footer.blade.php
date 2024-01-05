@@ -73,7 +73,7 @@
                     Rua 102 <br>
                     Granja-CE<br>
                     Brasil <br><br>
-                    <strong>Celular:</strong> <a href="https://wa.link/7w0wug">(88) 9 9463-9840</a><br>
+                    <strong>Celular:</strong> <a href="https://wa.link/7w0wug" target="_blank">(88) 9 9463-9840</a><br>
                     <strong>Email:</strong> ssolucoessoftware@gmail.com<br>
                 </p>
 

@@ -22,7 +22,7 @@
                         <i class="bi bi-telephone"></i>
                         <h3>Celular</h3>
                         <p>
-                            <a href="https://wa.link/7w0wug">(88) 9 9463-9840</a>
+                            <a href="https://wa.link/7w0wug" target="_blank">(88) 9 9463-9840</a>
                             <br>
                             {{-- +1 6678 254445 41 --}}
                         </p>
